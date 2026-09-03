@@ -43,6 +43,7 @@ const copy = {
     proves: "НОТОЛЖ БУЙ ЧАДВАР",
     status: "ТӨЛӨВ",
     statusValue: "DEMO ХОЛБООС УДАХГҮЙ",
+    repository: "ЭХ КОД ҮЗЭХ",
     projectCount: "БОДИТ ТӨСӨЛ",
     domains: "БҮТЭЭГДЭХҮҮНИЙ ЧИГЛЭЛ",
     layers: "FULL-STACK ДАВХАРГА",
@@ -87,6 +88,7 @@ const copy = {
     proves: "CAPABILITY SHOWN",
     status: "STATUS",
     statusValue: "LIVE LINK COMING SOON",
+    repository: "VIEW REPOSITORY",
     projectCount: "REAL PROJECTS",
     domains: "PRODUCT DOMAINS",
     layers: "FULL-STACK LAYERS",
@@ -97,30 +99,34 @@ const projects = [
   {
     title: "BO ZAR",
     code: "MARKETPLACE / 01",
+    github: "https://github.com/nurlan1234nur/bo-zar",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&h=420&fit=crop&auto=format",
     tech: ["NestJS", "React", "React Native", "PostgreSQL", "TypeORM", "Docker", "Nginx", "TypeScript"],
-    mn: { sub: "Веб, мобайл, админ бүхий зарын нэгдсэн платформ", problem: "Баян-Өлгий болон Улаанбаатарын хэрэглэгчдэд зар нийтлэх, хайх, удирдах нэг экосистем хэрэгтэй байсан.", solution: "NestJS REST API, PostgreSQL өгөгдлийн сан, нийтийн веб, moderation админ болон Expo мобайл аппыг shared contract-тай monorepo хэлбэрээр хөгжүүлсэн.", contribution: "Системийн архитектур, backend API, өгөгдлийн загвар, веб ба админ интерфэйс, мобайл интеграц болон deployment бүтцийг цогцоор нь хэрэгжүүлсэн.", proves: "Олон client-тэй бүтээгдэхүүнийг эхнээс нь архитектурчилж, нэг API болон нэгдсэн type contract дээр хөгжүүлэх чадвар." },
-    en: { sub: "A classifieds ecosystem across web, mobile, and admin", problem: "Users in Bayan-Ölgii and Ulaanbaatar needed one place to publish, discover, and manage local listings.", solution: "Built a monorepo with a NestJS REST API, PostgreSQL, public web marketplace, moderation panel, Expo mobile app, and shared typed contracts.", contribution: "Owned the system architecture, backend API, data model, web and admin experiences, mobile integration, and deployment structure.", proves: "Ability to design and deliver a multi-client product around one API and a consistent typed domain model." },
+    mn: { sub: "Веб, мобайл, админ бүхий хөгжүүлж буй зарын платформ", problem: "Баян-Өлгий болон Улаанбаатарын хэрэглэгчдэд зар нийтлэх, хайх, удирдах нэг экосистем хэрэгтэй байсан.", solution: "NestJS REST API, PostgreSQL, нийтийн веб, moderation админ болон Expo мобайл аппыг shared contract-тай monorepo хэлбэрээр хөгжүүлж байна.", contribution: "Шаардлага, архитектур, өгөгдлийн загвар, API болон client integration дээр өөрөө болон AI-assisted байдлаар ажилласан. Гол workflow-ууд хэрэгжсэн ч production deployment, storage болон E2E баталгаажуулалт үргэлжилж байна.", proves: "Олон client-тэй full-stack бүтээгдэхүүнийг хэсэгчлэн задлах, гарсан кодыг ойлгож засах, системийн интеграцийг хариуцах чадвар." },
+    en: { sub: "An in-progress classifieds platform across web, mobile, and admin", problem: "Users in Bayan-Ölgii and Ulaanbaatar needed one place to publish, discover, and manage local listings.", solution: "Developing a monorepo with a NestJS API, PostgreSQL, public web app, moderation panel, Expo mobile app, and shared typed contracts.", contribution: "Worked on requirements, architecture, data modeling, APIs, and client integration through hands-on and AI-assisted development. Core flows work, while production deployment, durable storage, and E2E verification remain in progress.", proves: "Ability to decompose a multi-client product, understand and revise generated code, and take responsibility for system integration." },
   },
   {
     title: "NUM TMS",
     code: "DISTRIBUTED SYSTEM / 02",
+    github: "https://github.com/Binderya0623/NUM-TMS-26",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=640&h=420&fit=crop&auto=format",
     tech: ["Spring Boot", "React", "JSF", "PostgreSQL", "R2DBC", "Microservices", "Module Federation", "Docker"],
-    mn: { sub: "Дипломын ажлын бүх мөчлөгийг удирдах тархмал систем", problem: "Сэдэв сонголтоос хамгаалалт, үнэлгээ хүртэлх олон дүр, шатлалтай процессыг нэг системээр удирдах шаардлагатай.", solution: "Spring Boot микросервисүүд, PostgreSQL, JSF host болон Module Federation-д суурилсан React microfrontend архитектураар домэйнүүдийг тусгаарласан.", contribution: "Үйлчилгээний зааг, REST харилцаа, дүрд суурилсан модулиуд, дэд бүтэц болон олон багцын интеграцийг зохион байгуулсан.", proves: "Нарийн бизнес процессийг service boundary болгон задлах, microservice ба microfrontend системтэй ажиллах чадвар." },
-    en: { sub: "A distributed thesis lifecycle management system", problem: "A multi-role academic workflow had to coordinate everything from topic selection through planning, defense, evaluation, and grading.", solution: "Separated domains into Spring Boot microservices backed by PostgreSQL, with a JSF host and federated React microfrontends for each role.", contribution: "Worked across service boundaries, REST contracts, role-based modules, infrastructure, and multi-application integration.", proves: "Ability to translate complex workflows into service boundaries and work across microservice and microfrontend architecture." },
+    mn: { sub: "Production VPS дээр ажиллаж буй дипломын удирдлагын систем", problem: "Олон Spring service болон frontend module-ийг найдвартай build хийж, нэг VPS рүү тасралтгүй хүргэх шаардлагатай байсан.", solution: "GitHub Actions matrix CI, path-based selective build, Docker Hub image registry, Docker Compose, Nginx болон SSH deployment урсгал хэрэгжүүлсэн.", contribution: "Төслийн CI/CD, Docker containerization, production Compose/Nginx тохиргоо болон багшийн өгсөн VPS deployment дээр голлон ажилласан.", proves: "Олон service-тэй системийн build/deploy automation, secrets, image versioning болон VPS operations-ийг хариуцах чадвар." },
+    en: { sub: "A thesis management system running on a production VPS", problem: "Multiple Spring services and frontend modules needed a repeatable path from source code to one production VPS.", solution: "Implemented matrix CI, path-based selective builds, Docker Hub images, Docker Compose, Nginx, and SSH-based delivery with GitHub Actions.", contribution: "Focused on CI/CD, containerization, production Compose/Nginx configuration, and deployment to the instructor-provided VPS.", proves: "Practical ability to automate builds and deployments for a multi-service system and operate its versioned container runtime." },
   },
   {
     title: "NUM HOSPITAL",
     code: "HEALTHTECH / 03",
+    github: "https://github.com/NUM-HOSPITAL-V1",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=640&h=420&fit=crop&auto=format",
     tech: ["Next.js", "Node.js", "MongoDB", "Java", "Spring", "ICD-10", "Docker", "Microservices"],
-    mn: { sub: "Өвчтөний бүртгэл болон ICD-10 үйлчилгээний систем", problem: "Эмнэлгийн бүртгэл, оношийн код хайлт, санал болголтыг салангид бус найдвартай урсгалаар шийдэх шаардлагатай.", solution: "Next.js интерфэйс, Node.js backend, Java-д суурилсан бүртгэл болон ICD-10 code/suggestion сервисүүдийг container дэд бүтэцтэй нэгтгэсэн.", contribution: "Frontend, backend-ийн хувилбарууд, сервис интеграц, өгөгдлийн урсгал болон Docker орчныг ажиллуулж, системийн хэсгүүдийг холбосон.", proves: "Олон технологийн stack болон тусдаа сервисүүдийг нэг бүтээгдэхүүний урсгал болгон интеграцчлах чадвар." },
-    en: { sub: "Patient registration and ICD-10 service ecosystem", problem: "Patient intake, diagnosis-code search, and suggestions needed to work as one dependable clinical flow.", solution: "Integrated a Next.js interface and Node.js backend with Java-based registration, ICD-10 code, and suggestion services in containerized infrastructure.", contribution: "Worked across frontend and backend versions, service integration, data flows, and the Docker runtime environment.", proves: "Ability to integrate a polyglot set of independent services into one coherent product workflow." },
+    mn: { sub: "Production VPS дээр ажиллаж буй эмнэлгийн multi-service систем", problem: "Mock өгөгдөлтэй frontend болон тусдаа hospital, registration, ICD-10 service-үүдийг бодит ажилладаг нэг орчин болгох шаардлагатай байсан.", solution: "Бодит backend integration хийж, GitHub Actions, Docker Compose, Nginx ашиглан VPS-д хүргэсэн; AWS network/security/compute-ийг Terraform-аар туршсан.", contribution: "CI/CD, server deployment, frontend-backend холболт, ICD-10 integration болон хөгжүүлэлт дээр ажилласан. AWS/Terraform хэсэг нь production бус туршилт байсан.", proves: "Polyglot service integration, deployment automation, VPS operations болон infrastructure-as-code-ийн практик ойлголт." },
+    en: { sub: "A multi-service hospital system running on a production VPS", problem: "A mock-data frontend and separate hospital, registration, and ICD-10 services had to become one working environment.", solution: "Connected real backend flows and delivered services through GitHub Actions, Docker Compose, and Nginx; also explored AWS network, security, and compute provisioning with Terraform.", contribution: "Worked on CI/CD, server deployment, frontend-backend integration, and ICD-10 development. The AWS/Terraform work was an infrastructure experiment, not the current production host.", proves: "Practical understanding of polyglot integration, deployment automation, VPS operations, and infrastructure as code." },
   },
   {
     title: "NOUS",
     code: "REAL-TIME / 04",
+    github: "https://github.com/nurlan1234nur/nous",
     image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=640&h=420&fit=crop&auto=format",
     tech: ["React", "Node.js", "Express", "MongoDB", "Socket.IO", "JWT", "React Native", "Docker"],
     mn: { sub: "Хосуудад зориулсан real-time веб ба мобайл апп", problem: "Хосуудын харилцаа, хамтын мөч, өдөр тутмын interaction-ыг нэг хувийн орчинд төвлөрүүлэх зорилготой.", solution: "Socket.IO real-time суваг, JWT нэвтрэлт, MongoDB өгөгдлийн сан, React веб болон native mobile client бүхий full-stack систем хөгжүүлсэн.", contribution: "Prototype-оос production бүтэц рүү шилжүүлж, client/server зааг, authentication, real-time event болон release workflow дээр ажилласан.", proves: "Stateful real-time бүтээгдэхүүн, authentication болон олон client-ийн lifecycle-ийг удирдах чадвар." },
@@ -129,6 +135,7 @@ const projects = [
   {
     title: "IMPOSTER",
     code: "PWA GAME / 05",
+    github: "https://github.com/nurlan1234nur/imposter-game",
     image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=640&h=420&fit=crop&auto=format",
     tech: ["React", "TypeScript", "PWA", "Service Worker", "Docker", "Nginx", "i18n"],
     mn: { sub: "3 хэлтэй, утас дамжуулж тоглодог party game", problem: "Нэг утсаар интернэтгүй үед ч хурдан эхлүүлж болох, хэлний саадгүй бүлгийн тоглоом хэрэгтэй.", solution: "Монгол, Англи, Казах хэл, 340+ үгийн сан, custom profile болон installable offline PWA туршлагыг бүтээж Docker image-ээр хүргэдэг болгосон.", contribution: "Тоглоомын логик, responsive UX, олон хэл, PWA lifecycle, container build болон Nginx deployment-ийг хэрэгжүүлсэн.", proves: "Хэрэглэгч төвтэй interactive UI-г offline capability болон production delivery-тэй хослуулах чадвар." },
@@ -137,6 +144,7 @@ const projects = [
   {
     title: "TOTETYPE",
     code: "EDTECH / 06",
+    github: "https://github.com/nurlan1234nur/tote-type",
     image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=640&h=420&fit=crop&auto=format",
     tech: ["Next.js", "Node.js", "TypeScript", "REST API", "Keyboard UI", "Analytics"],
     mn: { sub: "Казах Төте жазу бичгийн дасгалын платформ", problem: "Төте жазуг дижитал орчинд системтэй сурах, бичих хурд ба зөв байдлаа хэмжих хүртээмжтэй хэрэгсэл хомс.", solution: "Үг, өгүүлбэрийн дасгал, санамсаргүй текстийн API, WPM/accuracy хэмжилт болон виртуал keyboard visualization бүхий платформ бүтээсэн.", contribution: "Сургалтын interaction, typing metrics, keyboard visualization болон frontend/backend урсгалыг хэрэгжүүлсэн.", proves: "Тусгай бичгийн системийг ойлгомжтой UX, бодит цагийн хэмжилт болон API дизайнтай холбох чадвар." },
@@ -145,6 +153,7 @@ const projects = [
   {
     title: "TRIPLE",
     code: "LEARNING PLATFORM / 07",
+    github: "https://github.com/TripleGenius",
     image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=640&h=420&fit=crop&auto=format",
     tech: ["NestJS", "React", "Material UI", "Prisma", "PostgreSQL", "JWT", "REST API"],
     mn: { sub: "Responsive сургалтын full-stack платформ", problem: "Сургалтын контент, хэрэглэгч болон эрхийн урсгалыг desktop, mobile аль алинд ойлгомжтой хүргэх шаардлагатай.", solution: "React ба Material UI интерфэйсийг NestJS, Prisma, PostgreSQL, JWT authentication бүхий backend-тэй холбосон.", contribution: "Responsive frontend, authentication, API integration болон relational өгөгдлийн давхарга дээр ажилласан.", proves: "Орчин үеийн UI-г secure backend болон relational data model-той цэвэр холбох чадвар." },
@@ -153,6 +162,7 @@ const projects = [
   {
     title: "BLINKCV",
     code: "PRODUCTIVITY / 08",
+    github: "https://github.com/nurlan1234nur/blinkcv",
     image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=640&h=420&fit=crop&auto=format",
     tech: ["React", "Vite", "TypeScript", "Tailwind CSS", "Responsive UI"],
     mn: { sub: "Хурдан CV бүтээх responsive веб хэрэгсэл", problem: "Ажил горилогчид техникийн мэдлэггүйгээр цэвэр, мэргэжлийн CV хурдан бэлтгэх хэрэгтэй.", solution: "Form-driven засварлалт, шууд preview болон дэлгэцийн хэмжээнд зохицох интерфэйстэй React апп бүтээсэн.", contribution: "Component architecture, form interaction, preview layout болон responsive styling-ийг хэрэгжүүлсэн.", proves: "Хэрэглэгчийн ажлыг цөөн алхамтай, ойлгомжтой frontend бүтээгдэхүүн болгох чадвар." },
@@ -262,7 +272,7 @@ export default function App() {
         <p className="mb-4 font-mono text-xs tracking-[.25em] text-accent">0{selected + 1} / {text.concept}</p>
         <h1 className="font-display text-6xl font-black uppercase md:text-8xl">{project.title}</h1>
         <p className="mt-4 text-xl text-white/45">{content.sub}</p>
-        <div className="mt-8 flex flex-wrap items-center gap-3"><span className="border border-accent/25 bg-accent/[.05] px-3 py-2 font-mono text-[9px] tracking-widest text-accent">{project.code}</span><span className="border border-white/10 px-3 py-2 font-mono text-[9px] tracking-widest text-white/35">{text.statusValue}</span></div>
+        <div className="mt-8 flex flex-wrap items-center gap-3"><span className="border border-accent/25 bg-accent/[.05] px-3 py-2 font-mono text-[9px] tracking-widest text-accent">{project.code}</span><span className="border border-white/10 px-3 py-2 font-mono text-[9px] tracking-widest text-white/35">{text.statusValue}</span><a href={project.github} target="_blank" rel="noreferrer" className="border border-accent/30 px-3 py-2 font-mono text-[9px] tracking-widest text-accent transition-colors hover:bg-accent hover:text-black">{text.repository} ↗</a></div>
         <div className="mt-20 border-t border-white/10 py-10 md:grid md:grid-cols-[220px_1fr] md:gap-8"><p className="font-mono text-xs tracking-widest text-white/30">01 — {text.problem}</p><p className="mt-5 text-lg leading-relaxed text-white/70 md:mt-0">{content.problem}</p></div>
         <div className="border-t border-white/10 py-10 md:grid md:grid-cols-[220px_1fr] md:gap-8"><p className="font-mono text-xs tracking-widest text-white/30">02 — {text.solution}</p><p className="mt-5 text-lg leading-relaxed text-white/70 md:mt-0">{content.solution}</p></div>
         <div className="border-t border-white/10 py-10 md:grid md:grid-cols-[220px_1fr] md:gap-8"><p className="font-mono text-xs tracking-widest text-white/30">03 — {text.contribution}</p><p className="mt-5 text-lg leading-relaxed text-white/70 md:mt-0">{content.contribution}</p></div>
