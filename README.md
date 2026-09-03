@@ -1,32 +1,32 @@
-# Nurlan Tyeljan — Developer Portfolio
+# Нурлан Тиелжан — Хөгжүүлэгчийн портфолио
 
-Bilingual developer portfolio presenting full-stack products, DevOps work, system integration, and AI-assisted learning projects with clear ownership and contribution boundaries.
+Full-stack хөгжүүлэлт, DevOps, системийн интеграц болон AI-assisted суралцах төслүүдээ бодит оролцоотой нь харуулсан Монгол/Англи хэлтэй портфолио.
 
-## Featured work
+## Онцлох ажлууд
 
-| Project | Role | Status |
+| Төсөл | Миний оролцоо | Төлөв |
 |---|---|---|
-| BO Zar | Full-stack, product and integration | In development |
-| NUM Thesis Management System | CI/CD, containerization and VPS deployment | Live |
-| NUM Hospital System | DevOps, backend integration and ICD-10 development | Live |
-| Nous | Requirements and AI-assisted full-stack development | Iterating |
-| Imposter | Product design and AI-assisted PWA development | Working build |
-| ToteType | Requirements and AI-assisted educational product | Prototype |
-| Triple | Requirements and AI-assisted full-stack learning | Prototype |
-| BlinkCV | AI-assisted React frontend learning | Prototype |
+| BO Zar | Full-stack хөгжүүлэлт, бүтээгдэхүүн, интеграц | Хөгжүүлж байгаа |
+| NUM TMS | CI/CD, containerization, VPS deployment | Ажиллаж байгаа |
+| NUM Hospital | DevOps, backend integration, ICD-10 | Ажиллаж байгаа |
+| Nous | Шаардлага, AI-assisted full-stack хөгжүүлэлт | Сайжруулж байгаа |
+| Imposter | Product design, AI-assisted PWA хөгжүүлэлт | Ажилладаг хувилбар |
+| ToteType | AI-assisted сургалтын бүтээгдэхүүн | Prototype |
+| Triple | AI-assisted full-stack сургалт | Prototype |
+| BlinkCV | AI-assisted React frontend сургалт | Prototype |
 
-## Stack
+## Технологи
 
 React 19, TypeScript, Vite 8, Tailwind CSS 4.
 
-## Run locally
+## Локал орчинд ажиллуулах
 
 ```bash
 npm install
 npm run dev
 ```
 
-The development server runs at `http://localhost:8443`.
+`http://localhost:8443` хаягаар нээнэ.
 
 ## Production build
 
@@ -35,18 +35,10 @@ npm run build
 npm run preview
 ```
 
-The static production output is generated in `dist/`.
+Build үр дүн `dist/` хавтаст үүснэ.
 
-## Project structure
-
-```text
-src/
-├── App.tsx       # bilingual content, project data, and UI components
-├── index.css     # Tailwind theme and global styles
-└── main.tsx      # React entry point
-```
-
-## Contact
+## Холбоо барих
 
 - GitHub: [nurlan1234nur](https://github.com/nurlan1234nur)
-- Email: nurlant566@gmail.com
+- Имэйл: [nurlant566@gmail.com](mailto:nurlant566@gmail.com)
+
