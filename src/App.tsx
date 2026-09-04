@@ -38,7 +38,7 @@ const copy = {
     graduate: "Програм хангамжийн инженерийн бакалавр",
     graduateText:
       "МУИС-д програм хангамжийн инженерчлэлээр суралцаж, backend, веб систем болон deployment чиглэлийн төслүүд дээр ажилласан.",
-    contact: "ХАМТДАА\nБҮТЭЭЦГЭЭЕ.",
+    contact: "БҮТЭЭЦГЭЭЕ.",
     contactText: "",
     phone: "УТАС",
     location: "БАЙРШИЛ",
@@ -81,7 +81,7 @@ const copy = {
     graduate: "B.Sc. in Software Engineering",
     graduateText:
       "Studied software engineering at NUM and worked on projects involving backend development, web systems, and deployment.",
-    contact: "LET'S\nBUILD\nSOMETHING.",
+    contact: "BUILD.",
     contactText:
       "Available for on-site, hybrid, or remote work from Ulaanbaatar. Open to new projects, job opportunities, and professional conversations.",
     phone: "PHONE",
@@ -539,7 +539,7 @@ export default function App() {
             <p className="mt-8 max-w-3xl text-lg leading-relaxed text-white/55">
               {text.about}
             </p>
-            <div className="mt-12 grid gap-5 border-t border-white/10 pt-8 sm:grid-cols-3">
+            <div className="mt-12 grid gap-5 border-t border-white/10 pt-8 sm:grid-cols-2">
               <div>
                 <p className="font-mono text-[9px] tracking-widest text-white/25">
                   {text.education}
@@ -551,11 +551,6 @@ export default function App() {
                   {text.university}
                 </p>
                 <p className="mt-3">2026</p>
-              </div>
-              <div>
-                <div className="flex h-16 w-16 items-center justify-center rounded-full border border-accent/30 bg-accent/[.06] font-display text-xl font-bold text-accent">
-                  NT
-                </div>
               </div>
             </div>
           </div>
