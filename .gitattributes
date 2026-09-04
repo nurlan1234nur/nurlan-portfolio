@@ -144,3 +144,8 @@
 *.stl                filter=lfs diff=lfs merge=lfs -text
 *.nc                 filter=lfs diff=lfs merge=lfs -text
 *.mat                filter=lfs diff=lfs merge=lfs -text
+
+# Keep portfolio web assets in regular Git so Vercel receives the actual files.
+src/images/*.png     -filter -diff -merge -text
+src/images/*.jpg     -filter -diff -merge -text
+src/images/*.jpeg    -filter -diff -merge -text
