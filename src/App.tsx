@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Cursor, HeroCanvas } from "./components/Effects"
 import {
   Capability,

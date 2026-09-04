@@ -76,7 +76,7 @@ export function HeroCanvas() {
 
     const mouse = { x: -999, y: -999 }
     let frame = 0
-    let nodes: { x: number y: number vx: number vy: number }[] = []
+    let nodes: { x: number; y: number; vx: number; vy: number }[] = []
 
     const resize = () => {
       const scale = window.devicePixelRatio || 1

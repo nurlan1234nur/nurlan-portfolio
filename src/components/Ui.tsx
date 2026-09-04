@@ -32,7 +32,7 @@ export function SkillGroup({
   )
 }
 
-export function Stat({ value, label }: { value: string label: string }) {
+export function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div className="min-w-28">
       <strong className="font-display text-3xl text-accent">{value}</strong>
