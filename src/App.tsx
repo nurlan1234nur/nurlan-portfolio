@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react"
 import { Cursor, HeroCanvas } from "./components/Effects"
+import hospitalImage from "./images/hospital.png"
+import marketImage from "./images/market.png"
+import nousImage from "./images/nous.png"
+import tmsImage from "./images/Tms.png"
 import {
   Capability,
   Contact,
@@ -106,8 +110,7 @@ const projects = [
     code: "MARKETPLACE / 01",
     github: "https://github.com/nurlan1234nur/bo-zar",
     live: "http://116.206.83.75:8200/",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&h=420&fit=crop&auto=format",
+    image: marketImage,
     tech: [
       "NestJS",
       "React",
@@ -146,8 +149,7 @@ const projects = [
     code: "DISTRIBUTED SYSTEM / 02",
     github: "https://github.com/Binderya0623/NUM-TMS-26",
     live: "http://116.206.83.75/",
-    image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=640&h=420&fit=crop&auto=format",
+    image: tmsImage,
     tech: [
       "Spring Boot",
       "React",
@@ -186,8 +188,7 @@ const projects = [
     code: "HEALTHTECH / 03",
     github: "https://github.com/NUM-HOSPITAL-V1",
     live: "http://116.206.83.75/hospital/",
-    image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=640&h=420&fit=crop&auto=format",
+    image: hospitalImage,
     tech: [
       "Next.js",
       "Node.js",
@@ -226,8 +227,7 @@ const projects = [
     code: "REAL-TIME / 04",
     github: "https://github.com/nurlan1234nur/nous",
     live: "http://116.206.83.75:8300/",
-    image:
-      "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=640&h=420&fit=crop&auto=format",
+    image: nousImage,
     tech: [
       "React",
       "Node.js",
