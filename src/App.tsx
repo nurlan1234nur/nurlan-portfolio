@@ -14,7 +14,7 @@ const copy = {
   mn: {
     nav: ["ЭХЛЭЛ", "ТАНИЛЦУУЛГА", "УР ЧАДВАР", "ТӨСЛҮҮД", "ЗАМНАЛ", "ХОЛБОО"],
     role: "Програм хангамжийн инженер",
-    hero: ["СУРАЛЦАНА.", "БҮТЭЭНЭ.", "САЙЖРУУЛНА."],
+    hero: ["СУРАЛЦАНА.", "БҮТЭЭНЭ."],
     heroText:
       "Backend, веб болон deployment-ийн чиглэлээр төсөл хөгжүүлж, ажилладаг систем бүтээх замаар туршлагаа ахиулж буй програм хангамжийн инженер.",
     scroll: "ДООШ ГҮЙЛГЭЖ ҮЗНЭ ҮҮ",
@@ -57,7 +57,7 @@ const copy = {
   en: {
     nav: ["HOME", "ABOUT", "SKILLS", "WORK", "JOURNEY", "CONTACT"],
     role: "Software Engineer",
-    hero: ["LEARN.", "BUILD.", "IMPROVE."],
+    hero: ["LEARN.", "BUILD."],
     heroText:
       "A software engineer growing through hands-on backend, web, and deployment projects—and learning by turning ideas into working systems.",
     scroll: "SCROLL TO EXPLORE",
