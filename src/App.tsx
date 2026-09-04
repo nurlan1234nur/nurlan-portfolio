@@ -261,45 +261,6 @@ const projects = [
         "Ability to build stateful real-time products and manage authentication and multi-client lifecycles.",
     },
   },
-  {
-    title: "IMPOSTER",
-    code: "PWA GAME / 05",
-    github: "https://github.com/nurlan1234nur/imposter-game",
-    live: "https://imposter-latest.onrender.com/",
-    image:
-      "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=640&h=420&fit=crop&auto=format",
-    tech: [
-      "React",
-      "TypeScript",
-      "PWA",
-      "Service Worker",
-      "Docker",
-      "Nginx",
-      "i18n",
-    ],
-    mn: {
-      sub: "3 хэлтэй, утас дамжуулж тоглодог party game",
-      problem:
-        "Нэг утсаар интернэтгүй үед ч хурдан эхлүүлж болох, хэлний саадгүй бүлгийн тоглоом хэрэгтэй.",
-      solution:
-        "Монгол, Англи, Казах хэл, 340+ үгийн сан, custom profile болон installable offline PWA туршлагыг бүтээж Docker image-ээр хүргэдэг болгосон.",
-      contribution:
-        "Тоглоомын логик, responsive UX, олон хэл, PWA lifecycle, container build болон Nginx deployment-ийг хэрэгжүүлсэн.",
-      proves:
-        "Хэрэглэгч төвтэй interactive UI-г offline capability болон production delivery-тэй хослуулах чадвар.",
-    },
-    en: {
-      sub: "A trilingual pass-the-phone party game",
-      problem:
-        "Groups needed an instant, language-inclusive game that could work from one phone—even without a reliable connection.",
-      solution:
-        "Created an installable offline PWA with Mongolian, English, and Kazakh support, 340+ prompts, custom profiles, and Docker delivery.",
-      contribution:
-        "Implemented game logic, responsive UX, localization, the PWA lifecycle, container builds, and Nginx deployment.",
-      proves:
-        "Ability to combine playful interaction design with offline capability and production delivery.",
-    },
-  },
 ]
 
 const activeSkills = [
@@ -570,11 +531,11 @@ export default function App() {
             <Capability
               number="01"
               title={
-                language === "mn" ? "BACKEND БА ӨГӨГДӨЛ" : "BACKEND & DATA"
+                language === "mn" ? "СЕРВЕР БА ӨГӨГДӨЛ" : "BACKEND & DATA"
               }
               body={
                 language === "mn"
-                  ? "REST API, нэвтрэлт ба эрхийн удирдлага, бизнес логик, харилцан хамааралтай болон баримт хэлбэрийн өгөгдлийн загвар."
+                  ? "REST API боловсруулах, хэрэглэгчийг таньж баталгаажуулах, хандалтын эрхийг зохицуулах, бизнесийн логик хэрэгжүүлэх, харилцан хамааралтай болон баримтад суурилсан өгөгдлийн загвар гаргах."
                   : "REST APIs, authentication, business logic, and relational and document data models."
               }
             />
@@ -582,12 +543,12 @@ export default function App() {
               number="02"
               title={
                 language === "mn"
-                  ? "ХЭРЭГЛЭГЧИЙН ИНТЕРФЭЙС"
+                  ? "ХЭРЭГЛЭГЧИЙН ТАЛЫН ХӨГЖҮҮЛЭЛТ"
                   : "PRODUCT FRONTEND"
               }
               body={
                 language === "mn"
-                  ? "Дэлгэцийн хэмжээнд зохицох веб, админ хэсэг, мобайл клиент болон бодит цагийн харилцан үйлдэл."
+                  ? "Төрөл бүрийн дэлгэцэд зохицох веб интерфэйс, удирдлагын самбар, мобайл апп болон бодит цагийн харилцан үйлдэл."
                   : "Responsive web, admin dashboards, mobile clients, and real-time interaction."
               }
             />
@@ -595,12 +556,12 @@ export default function App() {
               number="03"
               title={
                 language === "mn"
-                  ? "СИСТЕМИЙН БҮТЭЦ БА ХҮРГЭЛТ"
+                  ? "АРХИТЕКТУР БА БАЙРШУУЛАЛТ"
                   : "ARCHITECTURE & DELIVERY"
               }
               body={
                 language === "mn"
-                  ? "Нэгдсэн кодын сан, микросервис, контейнер, урвуу прокси, CI/CD болон серверт байршуулах урсгал."
+                  ? "Нэгдсэн кодын сан болон микросервисийн архитектур, контейнерчлэл, урвуу прокси, CI/CD, серверийн автомат байршуулалт."
                   : "Monorepos, microservices, containers, reverse proxies, CI/CD, and deployment workflows."
               }
             />
