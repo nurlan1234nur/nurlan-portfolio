@@ -14,7 +14,11 @@ export function Cursor() {
       target.current = { x: event.clientX, y: event.clientY }
     }
     const hover = (event: MouseEvent) => {
-      setActive(Boolean((event.target as HTMLElement).closest("a, button, [data-hover]")))
+      setActive(
+        Boolean(
+          (event.target as HTMLElement).closest("a, button, [data-hover]"),
+        ),
+      )
     }
     let frame = 0
     const animate = () => {
@@ -72,7 +76,7 @@ export function HeroCanvas() {
 
     const mouse = { x: -999, y: -999 }
     let frame = 0
-    let nodes: { x: number; y: number; vx: number; vy: number }[] = []
+    let nodes: { x: number y: number vx: number vy: number }[] = []
 
     const resize = () => {
       const scale = window.devicePixelRatio || 1
@@ -106,7 +110,10 @@ export function HeroCanvas() {
 
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
-          const distance = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y)
+          const distance = Math.hypot(
+            nodes[i].x - nodes[j].x,
+            nodes[i].y - nodes[j].y,
+          )
           if (distance < 170) {
             const near =
               Math.min(
@@ -148,5 +155,7 @@ export function HeroCanvas() {
     }
   }, [])
 
-  return <canvas ref={ref} className="absolute inset-0 h-full w-full opacity-70" />
+  return (
+    <canvas ref={ref} className="absolute inset-0 h-full w-full opacity-70" />
+  )
 }
