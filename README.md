@@ -1,6 +1,6 @@
 # Нурлан Тиелжан — Хөгжүүлэгчийн портфолио
 
-Full-stack хөгжүүлэлт, DevOps, системийн интеграц болон AI-assisted суралцах төслүүдээ бодит оролцоотой нь харуулсан Монгол/Англи хэлтэй портфолио.
+Full-stack хөгжүүлэлт, DevOps болон системийн интеграцийн төслүүдээ бодит оролцоотой нь харуулсан Монгол/Англи хэлтэй портфолио.
 
 ## Онцлох ажлууд
 
@@ -9,11 +9,11 @@ Full-stack хөгжүүлэлт, DevOps, системийн интеграц б�
 | BO Zar | Full-stack хөгжүүлэлт, бүтээгдэхүүн, интеграц | Хөгжүүлж байгаа |
 | NUM TMS | CI/CD, containerization, VPS deployment | Ажиллаж байгаа |
 | NUM Hospital | DevOps, backend integration, ICD-10 | Ажиллаж байгаа |
-| Nous | Шаардлага, AI-assisted full-stack хөгжүүлэлт | Сайжруулж байгаа |
-| Imposter | Product design, AI-assisted PWA хөгжүүлэлт | Ажилладаг хувилбар |
-| ToteType | AI-assisted сургалтын бүтээгдэхүүн | Prototype |
-| Triple | AI-assisted full-stack сургалт | Prototype |
-| BlinkCV | AI-assisted React frontend сургалт | Prototype |
+| Nous | Шаардлага, full-stack хөгжүүлэлт | Сайжруулж байгаа |
+| Imposter | Product design, PWA хөгжүүлэлт | Ажилладаг хувилбар |
+| ToteType | Сургалтын бүтээгдэхүүн | Prototype |
+| Triple | Full-stack сургалтын платформ | Prototype |
+| BlinkCV | React frontend төсөл | Prototype |
 
 ## Технологи
 
@@ -41,4 +41,3 @@ Build үр дүн `dist/` хавтаст үүснэ.
 
 - GitHub: [nurlan1234nur](https://github.com/nurlan1234nur)
 - Имэйл: [nurlant566@gmail.com](mailto:nurlant566@gmail.com)
-
