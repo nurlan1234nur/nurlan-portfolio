@@ -73,7 +73,7 @@ export function Timeline({
   description: string
 }) {
   return (
-    <div className="relative pb-12 pl-8 before:absolute before:-left-1 before:top-1 before:h-2 before:w-2 before:rounded-full before:border before:border-accent before:bg-[#0b0c0c]">
+    <div className="relative pb-12 pl-8 before:absolute before:-left-1 before:top-1 before:h-2 before:w-2 before:rounded-full before:border before:border-accent before:bg-[#08111f]">
       <div className="grid gap-3 md:grid-cols-[150px_1fr]">
         <span className="font-mono text-[9px] tracking-widest text-accent/60">
           {year}

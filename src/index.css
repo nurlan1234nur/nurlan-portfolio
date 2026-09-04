@@ -7,9 +7,9 @@
   --font-display: 'Barlow Condensed', sans-serif;
   --font-sans: 'Manrope', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --color-accent: #b8ff1a;
-  --color-surface: #131414;
-  --color-border: rgba(255, 255, 255, 0.07);
+  --color-accent: #38bdf8;
+  --color-surface: #0d1b2a;
+  --color-border: rgba(148, 163, 184, 0.18);
 }
 
 html,
@@ -19,8 +19,8 @@ body,
 }
 
 body {
-  background: #0b0c0c;
-  color: #e8e3d8;
+  background: #08111f;
+  color: #f8fafc;
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -46,6 +46,6 @@ body {
 }
 
 ::selection {
-  background: #b8ff1a;
-  color: #0b0c0c;
+  background: #38bdf8;
+  color: #08111f;
 }

@@ -8,7 +8,6 @@ import {
   Capability,
   Contact,
   SkillGroup,
-  Stat,
   Timeline,
 } from "./components/Ui"
 
@@ -56,7 +55,6 @@ const copy = {
     status: "ТӨЛӨВ",
     statusValue: "DEMO ХОЛБООС УДАХГҮЙ",
     repository: "ЭХ КОД ҮЗЭХ",
-    projectCount: "БОДИТ ТӨСӨЛ",
   },
   en: {
     nav: ["HOME", "ABOUT", "SKILLS", "WORK", "JOURNEY", "CONTACT"],
@@ -100,7 +98,6 @@ const copy = {
     status: "STATUS",
     statusValue: "LIVE LINK COMING SOON",
     repository: "VIEW REPOSITORY",
-    projectCount: "REAL PROJECTS",
   },
 }
 
@@ -114,7 +111,6 @@ const projects = [
     tech: [
       "NestJS",
       "React",
-      "React Native",
       "PostgreSQL",
       "TypeORM",
       "Docker",
@@ -122,22 +118,22 @@ const projects = [
       "TypeScript",
     ],
     mn: {
-      sub: "Веб, мобайл, админ бүхий зарын платформ",
+      sub: "Веб болон админ хэсэгтэй зарын платформ",
       problem:
-        "Баян-Өлгий болон Улаанбаатарын хэрэглэгчдэд зар нийтлэх, хайх, удирдах нэг экосистем хэрэгтэй байсан.",
+        "Хэрэглэгчид зараа хялбар нийтэлж, хэрэгтэй зүйлээ хайж, өөрийн заруудаа нэг дор удирдах боломж хэрэгтэй байсан.",
       solution:
-        "NestJS REST API, PostgreSQL, нийтийн веб, moderation админ болон Expo мобайл аппыг shared contract-тай monorepo хэлбэрээр хөгжүүлсэн.",
+        "NestJS, PostgreSQL ашиглан серверийн хэсгийг хийж, хэрэглэгчийн веб болон зар хянах админ хэсэгтэй холбосон.",
       contribution:
-        "Шаардлага, архитектур, өгөгдлийн загвар, API болон client integration дээр ажилласан. Гол workflow-уудыг хэрэгжүүлж, VPS дээр Docker Compose болон Nginx ашиглан байршуулсан.",
+        "Өгөгдлийн бүтэц, API, веб ба админ хэсгийн холболт болон зарын үндсэн үйлдлүүд дээр ажилласан. Системийг Docker Compose, Nginx ашиглан VPS серверт байршуулсан.",
       proves:
-        "Олон client-тэй full-stack бүтээгдэхүүнийг хэсэгчлэн төлөвлөх, кодын сангуудыг уялдуулах, системийн интеграци болон deployment дээр ажиллаж үзсэн.",
+        "Нэг бүтээгдэхүүний сервер, хэрэглэгчийн хэсэг, админ хэсэг болон байршуулалтыг хооронд нь уялдуулж ажилласан туршлага.",
     },
     en: {
-      sub: "A classifieds platform across web, mobile, and admin",
+      sub: "A classifieds platform across web and admin",
       problem:
         "Users in Bayan-Ölgii and Ulaanbaatar needed one place to publish, discover, and manage local listings.",
       solution:
-        "Built a monorepo with a NestJS API, PostgreSQL, public web app, moderation panel, Expo mobile app, and shared typed contracts.",
+        "Built a NestJS and PostgreSQL backend connected to a public web app and a moderation panel.",
       contribution:
         "Worked across requirements, architecture, data modeling, APIs, and client integration. Implemented the core flows and deployed the system to a VPS with Docker Compose and Nginx.",
       proves:
@@ -161,15 +157,15 @@ const projects = [
       "Docker",
     ],
     mn: {
-      sub: "Production VPS дээр ажиллаж буй дипломын удирдлагын систем",
+      sub: "VPS серверт ажиллаж буй дипломын ажлын удирдлагын систем",
       problem:
-        "Олон Spring service болон frontend module-ийг найдвартай build хийж, нэг VPS рүү тасралтгүй хүргэх шаардлагатай байсан.",
+        "Олон серверийн үйлчилгээ, веб модулийг нэг систем болгон найдвартай ажиллуулах, шинэчлэл бүрийг серверт алдаагүй хүргэх шаардлагатай байсан.",
       solution:
-        "GitHub Actions matrix CI, path-based selective build, Docker Hub image registry, Docker Compose, Nginx болон SSH deployment урсгал хэрэгжүүлсэн.",
+        "GitHub Actions-аар зөвхөн өөрчлөгдсөн үйлчилгээг build хийж, Docker image болгон серверт автоматаар шинэчилдэг урсгал хийсэн.",
       contribution:
-        "Төслийн CI/CD, Docker containerization, production Compose/Nginx тохиргоо болон багшийн өгсөн VPS deployment дээр голлон ажилласан.",
+        "CI/CD, Docker, Compose, Nginx-ийн тохиргоо болон VPS серверийн байршуулалтыг голлон хариуцсан.",
       proves:
-        "Олон service-тэй системийн build/deploy automation, secrets, image versioning болон VPS operations-ийг хариуцах чадвар.",
+        "Олон үйлчилгээтэй системийг автоматаар build хийж, хувилбарлан, серверт шинэчилж ажилласан туршлага.",
     },
     en: {
       sub: "A thesis management system running on a production VPS",
@@ -200,15 +196,15 @@ const projects = [
       "Microservices",
     ],
     mn: {
-      sub: "Production VPS дээр ажиллаж буй эмнэлгийн multi-service систем",
+      sub: "VPS серверт ажиллаж буй эмнэлгийн нэгдсэн систем",
       problem:
-        "Mock өгөгдөлтэй frontend болон тусдаа hospital, registration, ICD-10 service-үүдийг бодит ажилладаг нэг орчин болгох шаардлагатай байсан.",
+        "Тусдаа хөгжүүлсэн эмнэлэг, бүртгэл, ICD-10 үйлчилгээ болон веб хэсгийг бодит өгөгдөлтэй нэг систем болгох шаардлагатай байсан.",
       solution:
-        "Бодит backend integration хийж, GitHub Actions, Docker Compose, Nginx ашиглан VPS-д хүргэсэн; AWS network/security/compute-ийг Terraform-аар туршсан.",
+        "Веб хэсгийг серверийн үйлчилгээнүүдтэй холбож, GitHub Actions, Docker Compose, Nginx ашиглан VPS серверт байршуулсан.",
       contribution:
-        "CI/CD, server deployment, frontend-backend холболт, ICD-10 integration болон хөгжүүлэлт дээр ажилласан. AWS/Terraform хэсэг нь production бус туршилт байсан.",
+        "Автомат байршуулалт, веб ба серверийн холболт, ICD-10 кодын үйлчилгээ болон серверийн тохиргоон дээр ажилласан.",
       proves:
-        "Polyglot service integration, deployment automation, VPS operations болон infrastructure-as-code-ийн практик ойлголт.",
+        "Өөр өөр технологитой үйлчилгээнүүдийг холбож, нэг серверт тогтвортой ажиллуулсан туршлага.",
     },
     en: {
       sub: "A multi-service hospital system running on a production VPS",
@@ -235,30 +231,30 @@ const projects = [
       "MongoDB",
       "Socket.IO",
       "JWT",
-      "React Native",
+      "PWA",
       "Docker",
     ],
     mn: {
-      sub: "Хосуудад зориулсан real-time веб ба мобайл апп",
+      sub: "Хосуудад зориулсан бодит цагийн PWA веб апп",
       problem:
-        "Хосуудын харилцаа, хамтын мөч, өдөр тутмын interaction-ыг нэг хувийн орчинд төвлөрүүлэх зорилготой.",
+        "Хосуудын зурвас, дурсамж болон өдөр тутмын харилцааг зөвхөн өөрсдөд нь зориулсан нэг орчинд төвлөрүүлэх зорилготой.",
       solution:
-        "Socket.IO real-time суваг, JWT нэвтрэлт, MongoDB өгөгдлийн сан, React веб болон native mobile client бүхий full-stack систем хөгжүүлсэн.",
+        "React, Socket.IO, JWT болон MongoDB ашиглан шууд зурвас солилцдог, төхөөрөмждөө суулгаж ашиглах боломжтой PWA веб апп хийсэн.",
       contribution:
-        "Prototype-оос production бүтэц рүү шилжүүлж, client/server зааг, authentication, real-time event болон release workflow дээр ажилласан.",
+        "Нэвтрэлт, хэрэглэгчдийн холбоос, бодит цагийн зурвас, өгөгдөл хадгалалт болон серверт байршуулалтыг хийсэн.",
       proves:
-        "Stateful real-time бүтээгдэхүүн, authentication болон олон client-ийн lifecycle-ийг удирдах чадвар.",
+        "Бодит цагийн харилцаатай веб аппыг өгөгдлийн сан, нэвтрэлт болон байршуулалттай нь бүтээсэн туршлага.",
     },
     en: {
-      sub: "A real-time web and mobile app for couples",
+      sub: "A real-time PWA for couples",
       problem:
         "Couples needed a private shared space for communication, memories, and everyday interaction.",
       solution:
-        "Built a full-stack system with Socket.IO events, JWT authentication, MongoDB, a React web client, and a native mobile client.",
+        "Built an installable React PWA with Socket.IO events, JWT authentication, and MongoDB.",
       contribution:
-        "Evolved the prototype toward production structure across client/server boundaries, auth, real-time events, and release workflows.",
+        "Implemented authentication, couple linking, real-time messaging, persistence, and the production deployment workflow.",
       proves:
-        "Ability to build stateful real-time products and manage authentication and multi-client lifecycles.",
+        "Experience building and deploying a stateful real-time PWA with authentication and persistent data.",
     },
   },
 ]
@@ -271,7 +267,6 @@ const activeSkills = [
   "Express",
   "React",
   "Next.js",
-  "React Native",
   "REST API",
   "PostgreSQL",
   "MongoDB",
@@ -326,7 +321,7 @@ export default function App() {
     const project = projects[selected]
     const content = project[language]
     return (
-      <main className="min-h-screen bg-[#0b0c0c] px-8 py-24 text-[#e8e3d8] md:px-12">
+      <main className="min-h-screen bg-[#08111f] px-8 py-24 text-[#f8fafc] md:px-12">
         <Cursor />
         <div className="mx-auto max-w-5xl">
           <button
@@ -354,7 +349,7 @@ export default function App() {
                 href={project.live}
                 target="_blank"
                 rel="noreferrer"
-                className="border border-accent bg-accent px-3 py-2 font-mono text-[9px] tracking-widest text-black transition-colors hover:bg-transparent hover:text-accent"
+                className="border border-accent bg-accent px-3 py-2 font-mono text-[9px] tracking-widest text-[#08111f] transition-colors hover:bg-transparent hover:text-accent"
               >
                 LIVE DEMO ↗
               </a>
@@ -363,7 +358,7 @@ export default function App() {
               href={project.github}
               target="_blank"
               rel="noreferrer"
-              className="border border-accent/30 px-3 py-2 font-mono text-[9px] tracking-widest text-accent transition-colors hover:bg-accent hover:text-black"
+              className="border border-accent/30 px-3 py-2 font-mono text-[9px] tracking-widest text-accent transition-colors hover:bg-accent hover:text-[#08111f]"
             >
               {text.repository} ↗
             </a>
@@ -421,7 +416,7 @@ export default function App() {
   }
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#0b0c0c] text-[#e8e3d8]">
+    <main className="min-h-screen overflow-x-hidden bg-[#08111f] text-[#f8fafc]">
       <Cursor />
       {hoveredProject !== null && (
         <div
@@ -436,7 +431,7 @@ export default function App() {
           <div className="h-px w-full bg-accent/50" />
         </div>
       )}
-      <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/[.06] bg-[#0b0c0c]/80 px-8 py-5 backdrop-blur-xl md:px-12">
+      <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/[.08] bg-[#08111f]/80 px-8 py-5 backdrop-blur-xl md:px-12">
         <div className="flex items-center justify-end gap-6">
           <div className="hidden gap-6 md:flex">
             {text.nav.map((label, index) => (
@@ -451,7 +446,7 @@ export default function App() {
           </div>
           <button
             onClick={() => setLanguage(language === "mn" ? "en" : "mn")}
-            className="border border-accent/20 px-2.5 py-1.5 font-mono text-xs text-accent transition-colors hover:bg-accent hover:text-black"
+            className="border border-accent/20 px-2.5 py-1.5 font-mono text-xs text-accent transition-colors hover:bg-accent hover:text-[#08111f]"
           >
             {language === "mn" ? "EN" : "MN"}
           </button>
@@ -463,7 +458,7 @@ export default function App() {
         className="relative flex min-h-screen items-end overflow-hidden px-8 pb-20 pt-32 md:px-12 md:pb-24"
       >
         <HeroCanvas />
-        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#0b0c0c] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#08111f] to-transparent" />
         <div className="relative z-10 w-full">
           <p className="mb-8 font-mono text-[9px] uppercase tracking-[.25em] text-accent/70">
             Nurlan Tyeljan — {text.role} — 2026
@@ -477,7 +472,6 @@ export default function App() {
             <p className="max-w-lg text-sm leading-relaxed text-white/45">
               {text.heroText}
             </p>
-            <Stat value="08" label={text.projectCount} />
           </div>
         </div>
       </section>
@@ -535,8 +529,8 @@ export default function App() {
               }
               body={
                 language === "mn"
-                  ? "REST API боловсруулах, хэрэглэгчийг таньж баталгаажуулах, хандалтын эрхийг зохицуулах, бизнесийн логик хэрэгжүүлэх, харилцан хамааралтай болон баримтад суурилсан өгөгдлийн загвар гаргах."
-                  : "REST APIs, authentication, business logic, and relational and document data models."
+                  ? "REST API боловсруулах, хэрэглэгчийг таньж баталгаажуулах, хандалтын эрхийг зохицуулах болон бизнесийн логик хэрэгжүүлэх."
+                  : "REST APIs, authentication, access control, and business logic."
               }
             />
             <Capability
@@ -548,8 +542,8 @@ export default function App() {
               }
               body={
                 language === "mn"
-                  ? "Төрөл бүрийн дэлгэцэд зохицох веб интерфэйс, удирдлагын самбар, мобайл апп болон бодит цагийн харилцан үйлдэл."
-                  : "Responsive web, admin dashboards, mobile clients, and real-time interaction."
+                  ? "Төрөл бүрийн дэлгэцэд зохицох веб интерфэйс, удирдлагын самбар болон бодит цагийн харилцан үйлдэл."
+                  : "Responsive web interfaces, admin dashboards, and real-time interaction."
               }
             />
             <Capability
@@ -561,8 +555,8 @@ export default function App() {
               }
               body={
                 language === "mn"
-                  ? "Нэгдсэн кодын сан болон микросервисийн архитектур, контейнерчлэл, урвуу прокси, CI/CD, серверийн автомат байршуулалт."
-                  : "Monorepos, microservices, containers, reverse proxies, CI/CD, and deployment workflows."
+                  ? "Нэгдсэн кодын сан болон микросервисийн архитектур, контейнерчлэл, CI/CD, серверийн автомат байршуулалт."
+                  : "Monorepos, microservices, containers, CI/CD, and deployment workflows."
               }
             />
           </div>
@@ -659,7 +653,7 @@ export default function App() {
                 href="mailto:nurlant566@gmail.com"
                 className={`${
                   text.contactText ? "mt-8" : "mt-0"
-                } inline-block border border-accent/30 px-6 py-4 font-mono text-xs tracking-widest text-accent hover:bg-accent hover:text-black`}
+                } inline-block border border-accent/30 px-6 py-4 font-mono text-xs tracking-widest text-accent hover:bg-accent hover:text-[#08111f]`}
               >
                 nurlant566@gmail.com →
               </a>
