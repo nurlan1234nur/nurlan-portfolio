@@ -645,7 +645,7 @@ export default function App() {
       >
         <div className="mx-auto max-w-7xl">
           <p className="font-mono text-[8px] text-slate-400">05</p>
-          <h2 className="mt-6 whitespace-pre-line font-display text-[clamp(4rem,9vw,9rem)] font-black uppercase leading-[.85]">
+          <h2 className="mt-6 break-words whitespace-pre-line font-display text-[clamp(2.25rem,9vw,9rem)] font-black uppercase leading-[.9] tracking-[-.04em]">
             {text.contact}
           </h2>
           <div className="mt-16 grid gap-12 md:grid-cols-2">

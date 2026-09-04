@@ -6,9 +6,11 @@ export function Cursor() {
   const target = useRef({ x: -100, y: -100 })
   const trailing = useRef({ x: -100, y: -100 })
   const [active, setActive] = useState(false)
+  const [enabled, setEnabled] = useState(false)
 
   useEffect(() => {
     if (!window.matchMedia("(pointer: fine)").matches) return
+    setEnabled(true)
 
     const move = (event: MouseEvent) => {
       target.current = { x: event.clientX, y: event.clientY }
@@ -43,6 +45,8 @@ export function Cursor() {
       window.removeEventListener("mouseover", hover)
     }
   }, [])
+
+  if (!enabled) return null
 
   return (
     <>
