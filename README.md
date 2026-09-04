@@ -1,23 +1,36 @@
-# Нурлан Телжан — Хөгжүүлэгчийн портфолио
+# Нурлан Телжан — Програм хангамжийн инженерийн портфолио
 
-Full-stack хөгжүүлэлт, DevOps болон системийн интеграцийн төслүүдээ бодит оролцоотой нь харуулсан Монгол/Англи хэлтэй портфолио.
+Веб системийн хөгжүүлэлт, серверийн байршуулалт болон автоматжуулалтын чиглэлээр хэрэгжүүлсэн төслүүдээ танилцуулсан Монгол, Англи хэлтэй portfolio.
 
-## Онцлох ажлууд
+## Live portfolio
 
-| Төсөл | Миний оролцоо | Төлөв |
+[https://portfolio-dark-rust.vercel.app/](https://portfolio-dark-rust.vercel.app/)
+
+## Онцлох төслүүд
+
+| Төсөл | Товч танилцуулга | Live |
 |---|---|---|
-| BO Zar | Full-stack хөгжүүлэлт, бүтээгдэхүүн, интеграц | Хөгжүүлж байгаа |
-| NUM TMS | CI/CD, containerization, VPS deployment | Ажиллаж байгаа |
-| NUM Hospital | DevOps, backend integration, ICD-10 | Ажиллаж байгаа |
-| Nous | Шаардлага, full-stack хөгжүүлэлт | Сайжруулж байгаа |
-| Imposter | Product design, PWA хөгжүүлэлт | Ажилладаг хувилбар |
-| ToteType | Сургалтын бүтээгдэхүүн | Prototype |
-| Triple | Full-stack сургалтын платформ | Prototype |
-| BlinkCV | React frontend төсөл | Prototype |
+| BO Zar | NestJS, React, PostgreSQL бүхий зарын веб болон админ систем | [Үзэх](http://116.206.83.75:8200/) |
+| NUM TMS | Микросервис бүтэцтэй дипломын ажлын удирдлагын систем; CI/CD болон VPS байршуулалт | [Үзэх](http://116.206.83.75/) |
+| NUM Hospital | Next.js, Node.js, Java, MongoDB ашигласан эмнэлгийн нэгдсэн систем | [Үзэх](http://116.206.83.75/hospital/) |
+| Nous | Хосуудад зориулсан бодит цагийн харилцаатай PWA | [Үзэх](http://116.206.83.75:8300/) |
+
+## Portfolio-ийн боломжууд
+
+- Монгол, Англи хэл солих боломж
+- Responsive layout
+- Төсөл бүрийн дэлгэрэнгүй танилцуулга
+- Live demo болон GitHub холбоос
+- Төслийн screenshot preview
+- Smooth section navigation
+- Canvas animation болон custom cursor
 
 ## Технологи
 
-React 19, TypeScript, Vite 8, Tailwind CSS 4.
+- React 19
+- TypeScript
+- Vite 8
+- Tailwind CSS 4
 
 ## Локал орчинд ажиллуулах
 
@@ -26,7 +39,7 @@ npm install
 npm run dev
 ```
 
-`http://localhost:8443` хаягаар нээнэ.
+Portfolio `http://localhost:8443` хаяг дээр ажиллана.
 
 ## Production build
 
