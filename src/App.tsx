@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
+import { Cursor, HeroCanvas } from "./components/Effects"
+import { Capability, Contact, SkillGroup, Stat, Timeline } from "./components/Ui"
 
 type Language = "mn" | "en"
 
@@ -7,18 +9,18 @@ const copy = {
     nav: ["ЭХЛЭЛ", "ТАНИЛЦУУЛГА", "УР ЧАДВАР", "ТӨСЛҮҮД", "ЗАМНАЛ", "ХОЛБОО"],
     available: "Ажилд нээлттэй",
     role: "Програм хангамжийн инженер",
-    hero: ["АСУУДЛЫГ", "КОДООР", "ШИЙДНЭ."],
-    heroText: "Програм хангамж, системийн найдвартай ажиллагаа болон хэрэглэгчийн хэрэгцээг холбосон бодит шийдэл бүтээхийг зорьдог програм хангамжийн инженер.",
+    hero: ["СУРАЛЦАНА.", "БҮТЭЭНЭ.", "САЙЖРУУЛНА."],
+    heroText: "Backend, веб болон deployment-ийн чиглэлээр төсөл хөгжүүлж, ажилладаг систем бүтээх замаар туршлагаа ахиулж буй програм хангамжийн инженер.",
     scroll: "ДООШ ГҮЙЛГЭЖ ҮЗНЭ ҮҮ",
     identity: "ТАНИЛЦУУЛГА",
-    aboutTitle: "Шинэ төгсөгч. Бодит асуудалд төвлөрсөн хөгжүүлэгч.",
-    about: "Би Монгол Улсын Их Сургуулийг Програм хангамжийн инженер мэргэжлээр 2026 онд төгссөн. Сурсан мэдлэг, програмчлал болон системийн ашиглалтын ур чадвараа бодит ажилд хэрэгжүүлж, байгууллагын үйл ажиллагаанд хувь нэмэр оруулахын зэрэгцээ мэргэжлийн хувьд хөгжихийг зорьдог.",
+    aboutTitle: "Төсөл дээр суралцаж, бүтээж хөгждөг инженер.",
+    about: "Би Монгол Улсын Их Сургуулийг Програм хангамжийн инженер мэргэжлээр 2026 онд төгссөн. Сургалтын болон хувийн төслүүдээр backend, frontend, өгөгдлийн сан, container болон deployment-ийн суурь туршлага хуримтлуулсан. Одоо энэ сууриа бодит баг, бүтээгдэхүүний орчинд үргэлжлүүлэн хөгжүүлэхийг зорьж байна.",
     focus: "Сервер талын хөгжүүлэлт, DevOps болон веб системийн бүрэн хөгжүүлэлтийн чиглэлээр бүтэн цагийн ажил сонирхож байна.",
     education: "БОЛОВСРОЛ",
     degree: "Програм хангамжийн инженер",
     university: "Монгол Улсын Их Сургууль",
     skills: "УР ЧАДВАР",
-    active: "АШИГЛАЖ ЧАДДАГ",
+    active: "ТӨСӨЛД АШИГЛАСАН",
     exploring: "СУДАЛЖ БАЙГАА",
     work: "ТӨСЛҮҮД",
     workNote: "Бүтээгдэхүүний сэтгэлгээ, full-stack хөгжүүлэлт, системийн архитектур болон deployment чадварыг харуулах бодит ажлууд.",
@@ -27,20 +29,19 @@ const copy = {
     journey: "ЗАМНАЛ",
     internship: "DevOps дадлагажигч",
     internshipText: "Өөрийн хөгжүүлсэн жижиг Node.js програмыг Docker контейнер болгож, Kubernetes, CI/CD дамжлага болон байршуулалтын урсгалыг туршсан.",
-    graduate: "Програм хангамжийн инженерээр төгссөн",
-    graduateText: "Монгол Улсын Их Сургуулийг төгсөж, сервер талын хөгжүүлэлт, DevOps болон веб системийн бүрэн хөгжүүлэлтийн чиглэлээр ажил хайж эхэлсэн.",
+    graduate: "Програм хангамжийн инженерийн бакалавр",
+    graduateText: "МУИС-д програм хангамжийн инженерчлэлээр суралцаж, backend, веб систем болон deployment чиглэлийн төслүүд дээр ажилласан.",
     contact: "ХАМТДАА\nБҮТЭЭЦГЭЭЕ.",
-    contactText: "Улаанбаатар хотод оффис, хосолсон эсвэл зайнаас ажиллах боломжтой. Шинэ төсөл, ажлын санал эсвэл мэргэжлийн ярианд нээлттэй.",
+    contactText: "",
     phone: "УТАС",
     location: "БАЙРШИЛ",
     locationValue: "Баянзүрх, Улаанбаатар",
-    built: "REACT + VITE АШИГЛАН БҮТЭЭВ",
     back: "ТӨСЛҮҮД РҮҮ БУЦАХ",
-    problem: "ЗОРИЛГО",
+    problem: "ХЭРЭГЦЭЭ",
     solution: "ХЭРЭГЖҮҮЛЭЛТ",
     stack: "ТЕХНОЛОГИ",
     contribution: "МИНИЙ ОРОЛЦОО",
-    proves: "НОТОЛЖ БУЙ ЧАДВАР",
+    proves: "ХУРИМТЛУУЛСАН ТУРШЛАГА",
     status: "ТӨЛӨВ",
     statusValue: "DEMO ХОЛБООС УДАХГҮЙ",
     repository: "ЭХ КОД ҮЗЭХ",
@@ -52,18 +53,18 @@ const copy = {
     nav: ["HOME", "ABOUT", "SKILLS", "WORK", "JOURNEY", "CONTACT"],
     available: "Available for work",
     role: "Software Engineer",
-    hero: ["SOLVING", "PROBLEMS", "WITH CODE."],
-    heroText: "A software engineer focused on building practical solutions across backend development, DevOps, and full-stack engineering.",
+    hero: ["LEARN.", "BUILD.", "IMPROVE."],
+    heroText: "A software engineer growing through hands-on backend, web, and deployment projects—and learning by turning ideas into working systems.",
     scroll: "SCROLL TO EXPLORE",
     identity: "IDENTITY",
-    aboutTitle: "New graduate. Practical problem solver.",
-    about: "I graduated from the National University of Mongolia in 2026 with a degree in Software Engineering. I aim to apply my software development and system operations skills in a professional environment, contribute to meaningful work, and continue growing professionally.",
+    aboutTitle: "An engineer who learns by building.",
+    about: "I graduated from the National University of Mongolia in 2026 with a degree in Software Engineering. Through academic and personal projects, I gained foundational experience across backend and frontend development, databases, containers, and deployment. I am now looking to grow that foundation in a real product team.",
     focus: "Seeking full-time opportunities across backend development, DevOps, and full-stack engineering.",
     education: "EDUCATION",
     degree: "Software Engineering",
     university: "National University of Mongolia",
     skills: "CAPABILITIES",
-    active: "PRACTICAL KNOWLEDGE",
+    active: "USED IN PROJECTS",
     exploring: "CURRENTLY EXPLORING",
     work: "SELECTED WORK",
     workNote: "Real products demonstrating product thinking, full-stack delivery, system architecture, and deployment skills.",
@@ -72,20 +73,19 @@ const copy = {
     journey: "JOURNEY",
     internship: "DevOps Intern",
     internshipText: "Containerized a small Node.js application I developed and experimented with Kubernetes, CI/CD pipelines, and deployment workflows.",
-    graduate: "Software Engineering graduate",
-    graduateText: "Graduated from the National University of Mongolia and began pursuing backend, DevOps, and full-stack opportunities.",
+    graduate: "B.Sc. in Software Engineering",
+    graduateText: "Studied software engineering at NUM and worked on projects involving backend development, web systems, and deployment.",
     contact: "LET'S\nBUILD\nSOMETHING.",
     contactText: "Available for on-site, hybrid, or remote work from Ulaanbaatar. Open to new projects, job opportunities, and professional conversations.",
     phone: "PHONE",
     location: "LOCATION",
     locationValue: "Bayanzürkh, Ulaanbaatar",
-    built: "BUILT WITH REACT + VITE",
     back: "BACK TO WORK",
-    problem: "GOAL",
+    problem: "NEED",
     solution: "IMPLEMENTATION",
     stack: "STACK",
     contribution: "MY CONTRIBUTION",
-    proves: "CAPABILITY SHOWN",
+    proves: "EXPERIENCE GAINED",
     status: "STATUS",
     statusValue: "LIVE LINK COMING SOON",
     repository: "VIEW REPOSITORY",
@@ -103,8 +103,8 @@ const projects = [
     live: "http://116.206.83.75:8200/",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&h=420&fit=crop&auto=format",
     tech: ["NestJS", "React", "React Native", "PostgreSQL", "TypeORM", "Docker", "Nginx", "TypeScript"],
-    mn: { sub: "Веб, мобайл, админ бүхий зарын платформ", problem: "Баян-Өлгий болон Улаанбаатарын хэрэглэгчдэд зар нийтлэх, хайх, удирдах нэг экосистем хэрэгтэй байсан.", solution: "NestJS REST API, PostgreSQL, нийтийн веб, moderation админ болон Expo мобайл аппыг shared contract-тай monorepo хэлбэрээр хөгжүүлсэн.", contribution: "Шаардлага, архитектур, өгөгдлийн загвар, API болон client integration дээр ажилласан. Гол workflow-уудыг хэрэгжүүлж, VPS дээр Docker Compose болон Nginx ашиглан байршуулсан.", proves: "Олон client-тэй full-stack бүтээгдэхүүнийг хэсэгчлэн задлах, кодыг ойлгож засах, системийн интеграци болон deployment-ийг хариуцах чадвар." },
-    en: { sub: "A classifieds platform across web, mobile, and admin", problem: "Users in Bayan-Ölgii and Ulaanbaatar needed one place to publish, discover, and manage local listings.", solution: "Built a monorepo with a NestJS API, PostgreSQL, public web app, moderation panel, Expo mobile app, and shared typed contracts.", contribution: "Worked across requirements, architecture, data modeling, APIs, and client integration. Implemented the core flows and deployed the system to a VPS with Docker Compose and Nginx.", proves: "Ability to decompose a multi-client product, maintain its code, and own system integration and deployment." },
+    mn: { sub: "Веб, мобайл, админ бүхий зарын платформ", problem: "Баян-Өлгий болон Улаанбаатарын хэрэглэгчдэд зар нийтлэх, хайх, удирдах нэг экосистем хэрэгтэй байсан.", solution: "NestJS REST API, PostgreSQL, нийтийн веб, moderation админ болон Expo мобайл аппыг shared contract-тай monorepo хэлбэрээр хөгжүүлсэн.", contribution: "Шаардлага, архитектур, өгөгдлийн загвар, API болон client integration дээр ажилласан. Гол workflow-уудыг хэрэгжүүлж, VPS дээр Docker Compose болон Nginx ашиглан байршуулсан.", proves: "Олон client-тэй full-stack бүтээгдэхүүнийг хэсэгчлэн төлөвлөх, кодын сангуудыг уялдуулах, системийн интеграци болон deployment дээр ажиллаж үзсэн." },
+    en: { sub: "A classifieds platform across web, mobile, and admin", problem: "Users in Bayan-Ölgii and Ulaanbaatar needed one place to publish, discover, and manage local listings.", solution: "Built a monorepo with a NestJS API, PostgreSQL, public web app, moderation panel, Expo mobile app, and shared typed contracts.", contribution: "Worked across requirements, architecture, data modeling, APIs, and client integration. Implemented the core flows and deployed the system to a VPS with Docker Compose and Nginx.", proves: "Worked on breaking down a multi-client product, coordinating its codebases, system integration, and deployment." },
   },
   {
     title: "NUM TMS",
@@ -178,84 +178,8 @@ const projects = [
   },
 ]
 
-const activeSkills = ["TypeScript", "JavaScript", "Java", "Node.js", "NestJS", "Express", "Spring Boot", "React", "Next.js", "React Native", "REST API", "Socket.IO", "PostgreSQL", "MongoDB", "Docker", "Nginx", "CI/CD", "Git"]
-const exploringSkills = ["Kubernetes", "System Design", "Observability", "Automated Testing", "Performance", "Cloud Infrastructure"]
-
-function Cursor() {
-  const dot = useRef<HTMLDivElement>(null)
-  const ring = useRef<HTMLDivElement>(null)
-  const target = useRef({ x: -100, y: -100 })
-  const trailing = useRef({ x: -100, y: -100 })
-  const [active, setActive] = useState(false)
-
-  useEffect(() => {
-    if (!window.matchMedia("(pointer: fine)").matches) return
-    const move = (event: MouseEvent) => { target.current = { x: event.clientX, y: event.clientY } }
-    const hover = (event: MouseEvent) => setActive(Boolean((event.target as HTMLElement).closest("a, button, [data-hover]")))
-    let frame = 0
-    const animate = () => {
-      trailing.current.x += (target.current.x - trailing.current.x) * .12
-      trailing.current.y += (target.current.y - trailing.current.y) * .12
-      if (dot.current) dot.current.style.transform = `translate3d(${target.current.x}px,${target.current.y}px,0) translate(-50%,-50%)`
-      if (ring.current) ring.current.style.transform = `translate3d(${trailing.current.x}px,${trailing.current.y}px,0) translate(-50%,-50%)`
-      frame = requestAnimationFrame(animate)
-    }
-    window.addEventListener("mousemove", move)
-    window.addEventListener("mouseover", hover)
-    animate()
-    return () => { cancelAnimationFrame(frame); window.removeEventListener("mousemove", move); window.removeEventListener("mouseover", hover) }
-  }, [])
-
-  return <>
-    <div ref={dot} className="pointer-events-none fixed left-0 top-0 z-[100] rounded-full bg-accent transition-[width,height] duration-150" style={{ width: active ? 10 : 5, height: active ? 10 : 5 }} />
-    <div ref={ring} className="pointer-events-none fixed left-0 top-0 z-[99] rounded-full border transition-[width,height,border-color] duration-200" style={{ width: active ? 48 : 30, height: active ? 48 : 30, borderColor: active ? "rgba(184,255,26,.55)" : "rgba(184,255,26,.22)" }} />
-  </>
-}
-
-function HeroCanvas() {
-  const ref = useRef<HTMLCanvasElement>(null)
-  useEffect(() => {
-    const canvas = ref.current
-    if (!canvas) return
-    const context = canvas.getContext("2d")
-    if (!context) return
-    const mouse = { x: -999, y: -999 }
-    let frame = 0
-    let nodes: { x: number; y: number; vx: number; vy: number }[] = []
-    const resize = () => {
-      const scale = window.devicePixelRatio || 1
-      canvas.width = canvas.offsetWidth * scale
-      canvas.height = canvas.offsetHeight * scale
-      context.setTransform(scale, 0, 0, scale, 0, 0)
-      nodes = Array.from({ length: 28 }, () => ({ x: Math.random() * canvas.offsetWidth, y: Math.random() * canvas.offsetHeight, vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3 }))
-    }
-    const move = (event: MouseEvent) => { mouse.x = event.clientX; mouse.y = event.clientY }
-    const draw = () => {
-      const width = canvas.offsetWidth
-      const height = canvas.offsetHeight
-      context.clearRect(0, 0, width, height)
-      nodes.forEach((node) => {
-        node.x += node.vx; node.y += node.vy
-        if (node.x < 0 || node.x > width) node.vx *= -1
-        if (node.y < 0 || node.y > height) node.vy *= -1
-      })
-      for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
-        const distance = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y)
-        if (distance < 170) {
-          const near = Math.min(Math.hypot(nodes[i].x - mouse.x, nodes[i].y - mouse.y), Math.hypot(nodes[j].x - mouse.x, nodes[j].y - mouse.y)) < 220
-          context.strokeStyle = near ? `rgba(184,255,26,${(1 - distance / 170) * .25})` : `rgba(255,255,255,${(1 - distance / 170) * .06})`
-          context.beginPath(); context.moveTo(nodes[i].x, nodes[i].y); context.lineTo(nodes[j].x, nodes[j].y); context.stroke()
-        }
-      }
-      nodes.forEach((node) => { context.fillStyle = Math.hypot(node.x - mouse.x, node.y - mouse.y) < 150 ? "#b8ff1a" : "rgba(255,255,255,.3)"; context.beginPath(); context.arc(node.x, node.y, 2, 0, Math.PI * 2); context.fill() })
-      frame = requestAnimationFrame(draw)
-    }
-    resize(); draw()
-    window.addEventListener("resize", resize); window.addEventListener("mousemove", move)
-    return () => { cancelAnimationFrame(frame); window.removeEventListener("resize", resize); window.removeEventListener("mousemove", move) }
-  }, [])
-  return <canvas ref={ref} className="absolute inset-0 h-full w-full opacity-70" />
-}
+const activeSkills = ["TypeScript", "JavaScript", "Node.js", "NestJS", "Express", "React", "Next.js", "React Native", "REST API", "PostgreSQL", "MongoDB", "Docker", "Nginx", "CI/CD", "Git"]
+const exploringSkills = ["Core Java", "Spring Boot", "Socket.IO", "Kubernetes", "System Design", "Automated Testing", "Observability", "Cloud Infrastructure"]
 
 export default function App() {
   const [language, setLanguage] = useState<Language>("mn")
@@ -301,35 +225,14 @@ export default function App() {
 
     <section id="about" className="border-t border-white/[.07] px-8 py-28 md:px-12"><div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[160px_1fr] md:gap-20"><div><p className="font-mono text-[8px] text-white/25">01</p><p className="mt-2 font-mono text-[9px] tracking-widest text-accent/60">{text.identity}</p></div><div><h2 className="max-w-4xl font-display text-4xl font-bold uppercase leading-tight md:text-6xl">{text.aboutTitle}</h2><p className="mt-8 max-w-3xl text-lg leading-relaxed text-white/55">{text.about}</p><p className="mt-4 text-white/40">{text.focus}</p><div className="mt-12 grid gap-5 border-t border-white/10 pt-8 sm:grid-cols-3"><div><p className="font-mono text-[9px] tracking-widest text-white/25">{text.education}</p><p className="mt-3">{text.degree}</p></div><div><p className="font-mono text-[9px] tracking-widest text-white/25">{text.university}</p><p className="mt-3">2026</p></div><div><div className="flex h-16 w-16 items-center justify-center rounded-full border border-accent/30 bg-accent/[.06] font-display text-xl font-bold text-accent">NT</div></div></div></div></div></section>
 
-    <section id="skills" className="border-t border-white/[.07] px-8 py-28 md:px-12"><div className="mx-auto max-w-7xl"><p className="font-mono text-[8px] text-white/25">02</p><h2 className="mt-2 font-display text-5xl font-black uppercase md:text-7xl">{text.skills}</h2><div className="mt-16 grid border-y border-white/10 md:grid-cols-3"><Capability number="01" title="BACKEND & DATA" body={language === "mn" ? "REST API, authentication, business logic, relational болон document өгөгдлийн загвар." : "REST APIs, authentication, business logic, and relational and document data models."}/><Capability number="02" title="PRODUCT FRONTEND" body={language === "mn" ? "Responsive веб, admin dashboard, mobile client болон real-time interaction." : "Responsive web, admin dashboards, mobile clients, and real-time interaction."}/><Capability number="03" title="ARCHITECTURE & DELIVERY" body={language === "mn" ? "Monorepo, microservice, container, reverse proxy, CI/CD болон deployment workflow." : "Monorepos, microservices, containers, reverse proxies, CI/CD, and deployment workflows."}/></div><div className="mt-16 grid gap-12 md:grid-cols-2"><SkillGroup label={text.active} skills={activeSkills} accent/><SkillGroup label={text.exploring} skills={exploringSkills}/></div></div></section>
+    <section id="skills" className="border-t border-white/[.07] px-8 py-28 md:px-12"><div className="mx-auto max-w-7xl"><p className="font-mono text-[8px] text-white/25">02</p><h2 className="mt-2 font-display text-5xl font-black uppercase md:text-7xl">{text.skills}</h2><div className="mt-16 grid border-y border-white/10 md:grid-cols-3"><Capability number="01" title={language === "mn" ? "BACKEND БА ӨГӨГДӨЛ" : "BACKEND & DATA"} body={language === "mn" ? "REST API, нэвтрэлт ба эрхийн удирдлага, бизнес логик, харилцан хамааралтай болон баримт хэлбэрийн өгөгдлийн загвар." : "REST APIs, authentication, business logic, and relational and document data models."}/><Capability number="02" title={language === "mn" ? "ХЭРЭГЛЭГЧИЙН ИНТЕРФЭЙС" : "PRODUCT FRONTEND"} body={language === "mn" ? "Дэлгэцийн хэмжээнд зохицох веб, админ хэсэг, мобайл клиент болон бодит цагийн харилцан үйлдэл." : "Responsive web, admin dashboards, mobile clients, and real-time interaction."}/><Capability number="03" title={language === "mn" ? "СИСТЕМИЙН БҮТЭЦ БА ХҮРГЭЛТ" : "ARCHITECTURE & DELIVERY"} body={language === "mn" ? "Нэгдсэн кодын сан, микросервис, контейнер, урвуу прокси, CI/CD болон серверт байршуулах урсгал." : "Monorepos, microservices, containers, reverse proxies, CI/CD, and deployment workflows."}/></div><div className="mt-16 grid gap-12 md:grid-cols-2"><SkillGroup label={text.active} skills={activeSkills} accent/><SkillGroup label={text.exploring} skills={exploringSkills}/></div></div></section>
 
     <section id="work" className="border-t border-white/[.07] px-8 py-28 md:px-12"><div className="mx-auto max-w-7xl"><p className="font-mono text-[8px] text-white/25">03</p><h2 className="mt-2 font-display text-5xl font-black uppercase md:text-7xl">{text.work}</h2><p className="mt-4 max-w-3xl text-white/35">{text.workNote}</p><div className="mt-16 border-b border-white/10">{projects.map((project, index) => <button key={project.title} onMouseEnter={() => setHoveredProject(index)} onMouseLeave={() => setHoveredProject(null)} onClick={() => setSelected(index)} data-hover className="group grid w-full gap-4 border-t border-white/10 py-10 text-left transition-colors hover:text-accent md:grid-cols-[70px_1fr_190px_auto] md:items-center"><span className="font-mono text-[9px] text-white/25">0{index + 1}</span><span><strong className="font-display text-4xl uppercase transition-transform duration-300 group-hover:translate-x-2 md:text-5xl">{project.title}</strong><small className="mt-2 block text-sm font-normal text-white/40">{project[language].sub}</small></span><span className="font-mono text-[8px] tracking-widest text-white/25">{project.code}</span><span className="font-mono text-[9px] tracking-widest text-accent/60">{text.view} →</span></button>)}</div></div></section>
 
     <section id="journey" className="border-t border-white/[.07] px-8 py-28 md:px-12"><div className="mx-auto max-w-7xl"><p className="font-mono text-[8px] text-white/25">04</p><h2 className="mt-2 font-display text-5xl font-black uppercase md:text-7xl">{text.journey}</h2><div className="mt-16 border-l border-white/10"><Timeline year="2025.12 — 2026.02" title={`${text.internship} — CIA Solution`} description={text.internshipText}/><Timeline year="2026" title={text.graduate} description={text.graduateText}/></div></div></section>
 
-    <section id="contact" className="border-t border-white/[.07] px-8 py-28 md:px-12"><div className="mx-auto max-w-7xl"><p className="font-mono text-[8px] text-white/25">05</p><h2 className="mt-6 whitespace-pre-line font-display text-[clamp(4rem,9vw,9rem)] font-black uppercase leading-[.85]">{text.contact}</h2><div className="mt-16 grid gap-12 md:grid-cols-2"><div><p className="max-w-lg text-lg leading-relaxed text-white/45">{text.contactText}</p><a href="mailto:nurlant566@gmail.com" className="mt-8 inline-block border border-accent/30 px-6 py-4 font-mono text-xs tracking-widest text-accent hover:bg-accent hover:text-black">nurlant566@gmail.com →</a></div><div className="divide-y divide-white/10 border-y border-white/10"><Contact label="GITHUB" value="@nurlan1234nur" href="https://github.com/nurlan1234nur"/><Contact label={text.phone} value="+976 8543 2523" href="tel:+97685432523"/><Contact label={text.location} value={text.locationValue}/></div></div></div></section>
+    <section id="contact" className="border-t border-white/[.07] px-8 py-28 md:px-12"><div className="mx-auto max-w-7xl"><p className="font-mono text-[8px] text-white/25">05</p><h2 className="mt-6 whitespace-pre-line font-display text-[clamp(4rem,9vw,9rem)] font-black uppercase leading-[.85]">{text.contact}</h2><div className="mt-16 grid gap-12 md:grid-cols-2"><div>{text.contactText && <p className="max-w-lg text-lg leading-relaxed text-white/45">{text.contactText}</p>}<a href="mailto:nurlant566@gmail.com" className={`${text.contactText ? "mt-8" : "mt-0"} inline-block border border-accent/30 px-6 py-4 font-mono text-xs tracking-widest text-accent hover:bg-accent hover:text-black`}>nurlant566@gmail.com →</a></div><div className="divide-y divide-white/10 border-y border-white/10"><Contact label="GITHUB" value="@nurlan1234nur" href="https://github.com/nurlan1234nur"/><Contact label={text.phone} value="+976 8543 2523" href="tel:+97685432523"/><Contact label={text.location} value={text.locationValue}/></div></div></div></section>
 
-    <footer className="border-t border-white/[.06] px-8 py-8 md:px-12"><div className="mx-auto flex max-w-7xl justify-between font-mono text-[8px] tracking-widest text-white/20"><span>NURLAN TYELJAN — 2026</span><span>{text.built}</span></div></footer>
+    <footer className="border-t border-white/[.06] px-8 py-8 md:px-12"><div className="mx-auto max-w-7xl font-mono text-[8px] tracking-widest text-white/20"><span>NURLAN TYELJAN — 2026</span></div></footer>
   </main>
-}
-
-function SkillGroup({ label, skills, accent = false }: { label: string; skills: string[]; accent?: boolean }) {
-  return <div><p className="mb-6 font-mono text-[9px] tracking-widest text-white/30">{label}</p><div className="flex flex-wrap gap-2">{skills.map((skill) => <span key={skill} className={`border px-3 py-2 font-mono text-[10px] ${accent ? "border-accent/25 bg-accent/[.04] text-accent/75" : "border-white/10 text-white/35"}`}>{skill}</span>)}</div></div>
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return <div className="min-w-28"><strong className="font-display text-3xl text-accent">{value}</strong><p className="mt-1 font-mono text-[8px] tracking-widest text-white/30">{label}</p></div>
-}
-
-function Capability({ number, title, body }: { number: string; title: string; body: string }) {
-  return <article className="border-white/10 py-8 md:border-r md:px-7 md:first:pl-0 md:last:border-r-0"><span className="font-mono text-[9px] text-accent/60">{number}</span><h3 className="mt-5 font-display text-2xl font-bold">{title}</h3><p className="mt-4 max-w-sm text-sm leading-relaxed text-white/40">{body}</p></article>
-}
-
-function Timeline({ year, title, description }: { year: string; title: string; description: string }) {
-  return <div className="relative pb-12 pl-8 before:absolute before:-left-1 before:top-1 before:h-2 before:w-2 before:rounded-full before:border before:border-accent before:bg-[#0b0c0c]"><div className="grid gap-3 md:grid-cols-[150px_1fr]"><span className="font-mono text-[9px] tracking-widest text-accent/60">{year}</span><div><h3 className="font-medium">{title}</h3><p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/40">{description}</p></div></div></div>
-}
-
-function Contact({ label, value, href }: { label: string; value: string; href?: string }) {
-  const content = <><span className="font-mono text-[9px] tracking-widest text-white/25">{label}</span><span className="font-mono text-[10px] text-white/55">{value}</span></>
-  return href ? <a href={href} className="flex justify-between py-5 hover:text-accent">{content}</a> : <div className="flex justify-between py-5">{content}</div>
 }
