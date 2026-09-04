@@ -57,7 +57,7 @@ export function Cursor() {
         style={{
           width: active ? 48 : 30,
           height: active ? 48 : 30,
-          borderColor: active ? "rgba(56,189,248,.55)" : "rgba(56,189,248,.22)",
+          borderColor: active ? "rgba(185,120,94,.8)" : "rgba(185,120,94,.4)",
         }}
       />
     </>
@@ -121,8 +121,8 @@ export function HeroCanvas() {
                 Math.hypot(nodes[j].x - mouse.x, nodes[j].y - mouse.y),
               ) < 220
             context.strokeStyle = near
-              ? `rgba(56,189,248,${(1 - distance / 170) * 0.25})`
-              : `rgba(255,255,255,${(1 - distance / 170) * 0.06})`
+              ? `rgba(185,120,94,${(1 - distance / 170) * 0.46})`
+              : `rgba(216,213,207,${(1 - distance / 170) * 0.07})`
             context.beginPath()
             context.moveTo(nodes[i].x, nodes[i].y)
             context.lineTo(nodes[j].x, nodes[j].y)
@@ -134,8 +134,8 @@ export function HeroCanvas() {
       nodes.forEach((node) => {
         context.fillStyle =
           Math.hypot(node.x - mouse.x, node.y - mouse.y) < 150
-            ? "#38bdf8"
-            : "rgba(255,255,255,.3)"
+            ? "#b9785e"
+            : "rgba(216,213,207,.2)"
         context.beginPath()
         context.arc(node.x, node.y, 2, 0, Math.PI * 2)
         context.fill()

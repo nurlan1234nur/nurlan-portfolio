@@ -3,6 +3,7 @@ import { Cursor, HeroCanvas } from "./components/Effects"
 import hospitalImage from "./images/hospital.png"
 import marketImage from "./images/market.png"
 import nousImage from "./images/nous.png"
+import profileImage from "./images/profile.jpg"
 import tmsImage from "./images/Tms.png"
 import {
   Capability,
@@ -17,12 +18,10 @@ const copy = {
   mn: {
     nav: ["ЭХЛЭЛ", "ТАНИЛЦУУЛГА", "УР ЧАДВАР", "ТӨСЛҮҮД", "ТУРШЛАГА", "ХОЛБОО"],
     role: "Програм хангамжийн инженер",
-    hero: ["СУРАЛЦАНА.", "БҮТЭЭНЭ."],
     heroText:
-      "Backend, веб болон deployment-ийн чиглэлээр төсөл хөгжүүлж, ажилладаг систем бүтээх замаар туршлагаа ахиулж буй програм хангамжийн инженер.",
+      "Веб системийн хөгжүүлэлт, серверийн байршуулалт болон автоматжуулалтын чиглэлээр төсөл хэрэгжүүлсэн шинэ төгсөгч програм хангамжийн инженер.",
     scroll: "ДООШ ГҮЙЛГЭЖ ҮЗНЭ ҮҮ",
     identity: "ТАНИЛЦУУЛГА",
-    aboutTitle: "Төсөл дээр суралцаж, бүтээж хөгждөг инженер.",
     about:
       "Би Монгол Улсын Их Сургуулийг Програм хангамжийн инженер мэргэжлээр 2026 онд төгссөн. Сургалтын болон хувийн төслүүдээр backend, frontend, өгөгдлийн сан, container болон deployment-ийн суурь туршлага хуримтлуулсан. Одоо энэ сууриа бодит баг, бүтээгдэхүүний орчинд үргэлжлүүлэн хөгжүүлэхийг зорьж байна.",
     education: "БОЛОВСРОЛ",
@@ -59,12 +58,10 @@ const copy = {
   en: {
     nav: ["HOME", "ABOUT", "SKILLS", "WORK", "EXPERIENCE", "CONTACT"],
     role: "Software Engineer",
-    hero: ["LEARN.", "BUILD."],
     heroText:
       "A software engineer growing through hands-on backend, web, and deployment projects—and learning by turning ideas into working systems.",
     scroll: "SCROLL TO EXPLORE",
     identity: "IDENTITY",
-    aboutTitle: "An engineer who learns by building.",
     about:
       "I graduated from the National University of Mongolia in 2026 with a degree in Software Engineering. Through academic and personal projects, I gained foundational experience across backend and frontend development, databases, containers, and deployment. I am now looking to grow that foundation in a real product team.",
     education: "EDUCATION",
@@ -272,14 +269,9 @@ const activeSkills = [
   "Git",
 ]
 const exploringSkills = [
-  "Core Java",
   "Spring Boot",
   "Socket.IO",
   "Kubernetes",
-  "System Design",
-  "Automated Testing",
-  "Observability",
-  "Cloud Infrastructure",
 ]
 
 export default function App() {
@@ -317,86 +309,97 @@ export default function App() {
     const project = projects[selected]
     const content = project[language]
     return (
-      <main className="min-h-screen bg-[#08111f] px-8 py-24 text-[#f8fafc] md:px-12">
+      <main className="min-h-screen bg-[#020403] px-8 py-24 text-[#d8d5cf] md:px-12">
         <Cursor />
         <div className="mx-auto max-w-5xl">
           <button
             onClick={closeProject}
-            className="mb-16 font-mono text-xs tracking-widest text-white/40 hover:text-accent"
+            className="mb-16 font-mono text-xs tracking-widest text-slate-500 hover:text-accent"
           >
             ← {text.back}
           </button>
-          <p className="mb-4 font-mono text-xs tracking-[.25em] text-accent">
-            0{selected + 1} / {text.concept}
-          </p>
-          <h1 className="font-display text-6xl font-black uppercase md:text-8xl">
-            {project.title}
-          </h1>
-          <p className="mt-4 text-xl text-white/45">{content.sub}</p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <span className="border border-white/10 px-3 py-2 font-mono text-[9px] tracking-widest text-white/35">
-              {project.live ? "LIVE" : text.statusValue}
-            </span>
-            {project.live && (
+          <div className="grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_18rem] md:gap-14">
+            <div>
+              <p className="mb-4 font-mono text-xs tracking-[.25em] text-accent">
+                0{selected + 1} / {text.concept}
+              </p>
+              <h1 className="font-display text-6xl font-black uppercase md:text-8xl">
+                {project.title}
+              </h1>
+              <p className="mt-4 text-xl text-slate-600">{content.sub}</p>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <span className="border border-slate-200 px-3 py-2 font-mono text-[9px] tracking-widest text-slate-500">
+                  {project.live ? "LIVE" : text.statusValue}
+                </span>
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="border border-accent bg-accent px-3 py-2 font-mono text-[9px] tracking-widest text-[#020403] transition-colors hover:bg-transparent hover:text-accent"
+                  >
+                    LIVE DEMO ↗
+                  </a>
+                )}
               <a
-                href={project.live}
+                href={project.github}
                 target="_blank"
                 rel="noreferrer"
-                className="border border-accent bg-accent px-3 py-2 font-mono text-[9px] tracking-widest text-[#08111f] transition-colors hover:bg-transparent hover:text-accent"
+                className="border border-accent/30 px-3 py-2 font-mono text-[9px] tracking-widest text-accent transition-colors hover:bg-accent hover:text-[#020403]"
               >
-                LIVE DEMO ↗
+                {text.repository} ↗
               </a>
-            )}
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              className="border border-accent/30 px-3 py-2 font-mono text-[9px] tracking-widest text-accent transition-colors hover:bg-accent hover:text-[#08111f]"
-            >
-              {text.repository} ↗
-            </a>
+              </div>
+            </div>
+            <figure className="aspect-square w-full max-w-72 justify-self-center overflow-hidden border border-slate-200 bg-[#141413] p-2 shadow-[0_24px_70px_rgba(0,0,0,0.38)] md:justify-self-end md:p-3">
+              <img
+                src={project.image}
+                alt={`${project.title} project preview`}
+                className="h-full w-full object-cover object-top"
+              />
+            </figure>
           </div>
-          <div className="mt-20 border-t border-white/10 py-10 md:grid md:grid-cols-[220px_1fr] md:gap-8">
-            <p className="font-mono text-xs tracking-widest text-white/30">
+          <div className="mt-16 border-t border-slate-200 py-10 md:grid md:grid-cols-[220px_1fr] md:gap-8">
+            <p className="font-mono text-xs tracking-widest text-slate-500">
               01 — {text.problem}
             </p>
-            <p className="mt-5 text-lg leading-relaxed text-white/70 md:mt-0">
+            <p className="mt-5 text-lg leading-relaxed text-slate-700 md:mt-0">
               {content.problem}
             </p>
           </div>
-          <div className="border-t border-white/10 py-10 md:grid md:grid-cols-[220px_1fr] md:gap-8">
-            <p className="font-mono text-xs tracking-widest text-white/30">
+          <div className="border-t border-slate-200 py-10 md:grid md:grid-cols-[220px_1fr] md:gap-8">
+            <p className="font-mono text-xs tracking-widest text-slate-500">
               02 — {text.solution}
             </p>
-            <p className="mt-5 text-lg leading-relaxed text-white/70 md:mt-0">
+            <p className="mt-5 text-lg leading-relaxed text-slate-700 md:mt-0">
               {content.solution}
             </p>
           </div>
-          <div className="border-t border-white/10 py-10 md:grid md:grid-cols-[220px_1fr] md:gap-8">
-            <p className="font-mono text-xs tracking-widest text-white/30">
+          <div className="border-t border-slate-200 py-10 md:grid md:grid-cols-[220px_1fr] md:gap-8">
+            <p className="font-mono text-xs tracking-widest text-slate-500">
               03 — {text.contribution}
             </p>
-            <p className="mt-5 text-lg leading-relaxed text-white/70 md:mt-0">
+            <p className="mt-5 text-lg leading-relaxed text-slate-700 md:mt-0">
               {content.contribution}
             </p>
           </div>
-          <div className="border-t border-white/10 py-10 md:grid md:grid-cols-[220px_1fr] md:gap-8">
-            <p className="font-mono text-xs tracking-widest text-white/30">
+          <div className="border-t border-slate-200 py-10 md:grid md:grid-cols-[220px_1fr] md:gap-8">
+            <p className="font-mono text-xs tracking-widest text-slate-500">
               04 — {text.proves}
             </p>
-            <p className="mt-5 border-l-2 border-accent/50 pl-6 text-lg leading-relaxed text-white/70 md:mt-0">
+            <p className="mt-5 border-l-2 border-accent/50 pl-6 text-lg leading-relaxed text-slate-700 md:mt-0">
               {content.proves}
             </p>
           </div>
-          <div className="border-y border-white/10 py-10 md:grid md:grid-cols-[220px_1fr] md:gap-8">
-            <p className="font-mono text-xs tracking-widest text-white/30">
+          <div className="border-y border-slate-200 py-10 md:grid md:grid-cols-[220px_1fr] md:gap-8">
+            <p className="font-mono text-xs tracking-widest text-slate-500">
               05 — {text.stack}
             </p>
             <div className="mt-5 flex flex-wrap gap-2 md:mt-0">
               {project.tech.map((skill) => (
                 <span
                   key={skill}
-                  className="border border-white/10 px-3 py-2 font-mono text-xs text-white/50"
+                  className="border border-slate-200 px-3 py-2 font-mono text-xs text-slate-600"
                 >
                   {skill}
                 </span>
@@ -409,7 +412,7 @@ export default function App() {
   }
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#08111f] text-[#f8fafc]">
+    <main className="min-h-screen overflow-x-hidden bg-[#020403] text-[#d8d5cf]">
       <Cursor />
       {hoveredProject !== null && (
         <div
@@ -419,19 +422,19 @@ export default function App() {
           <img
             src={projects[hoveredProject].image}
             alt=""
-            className="h-36 w-56 border border-white/10 object-cover grayscale"
+            className="h-36 w-56 border border-slate-200 object-cover grayscale"
           />
           <div className="h-px w-full bg-accent/50" />
         </div>
       )}
-      <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/[.08] bg-[#08111f]/80 px-8 py-5 backdrop-blur-xl md:px-12">
+      <nav className="fixed inset-x-0 top-0 z-50 border-b border-[#1a2324] bg-[#141413]/90 px-8 py-5 backdrop-blur-xl md:px-12">
         <div className="flex items-center justify-end gap-6">
           <div className="hidden gap-6 md:flex">
             {text.nav.map((label, index) => (
               <a
                 key={label}
                 href={`#${ids[index]}`}
-                className="font-mono text-[9px] tracking-widest text-white/35 transition-colors hover:text-accent"
+                className="font-mono text-[9px] tracking-widest text-slate-500 transition-colors hover:text-accent"
               >
                 {label}
               </a>
@@ -439,7 +442,7 @@ export default function App() {
           </div>
           <button
             onClick={() => setLanguage(language === "mn" ? "en" : "mn")}
-            className="border border-accent/20 px-2.5 py-1.5 font-mono text-xs text-accent transition-colors hover:bg-accent hover:text-[#08111f]"
+            className="border border-accent/25 px-2.5 py-1.5 font-mono text-xs text-accent transition-colors hover:bg-accent hover:text-[#020403]"
           >
             {language === "mn" ? "EN" : "MN"}
           </button>
@@ -448,54 +451,67 @@ export default function App() {
 
       <section
         id="index"
-        className="relative flex min-h-screen items-end overflow-hidden px-8 pb-20 pt-32 md:px-12 md:pb-24"
+        className="relative flex min-h-screen items-center overflow-hidden px-8 pb-20 pt-32 md:px-12 md:py-28"
       >
         <HeroCanvas />
-        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#08111f] to-transparent" />
-        <div className="relative z-10 w-full">
-          <p className="mb-8 font-mono text-[9px] uppercase tracking-[.25em] text-accent/70">
-            Nurlan Tyeljan — {text.role} — 2026
-          </p>
-          <h1 className="font-display text-[clamp(4rem,11vw,12rem)] font-black uppercase leading-[.87]">
-            <span className="block">{text.hero[0]}</span>
-            <span className="block text-white/20">{text.hero[1]}</span>
-            <span className="block">{text.hero[2]}</span>
-          </h1>
-          <div className="mt-8 grid gap-8 border-t border-white/10 pt-7 md:grid-cols-[1fr_auto] md:items-end">
-            <p className="max-w-lg text-sm leading-relaxed text-white/45">
-              {text.heroText}
+        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#020403] to-transparent" />
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-[1.15fr_.85fr]">
+          <div>
+            <p className="mb-7 font-mono text-[9px] uppercase tracking-[.25em] text-accent/75">
+              {text.role} — Ulaanbaatar
             </p>
+            <h1 className="font-display text-[clamp(3.6rem,8vw,8.5rem)] font-black uppercase leading-[.88] tracking-[-.055em]">
+              <span className="block">Nurlan</span>
+              <span className="block text-accent">Tyeljan</span>
+            </h1>
+            <div className="mt-9 border-t border-slate-200 pt-7">
+              <p className="max-w-xl text-sm leading-relaxed text-slate-600">
+                {text.heroText}
+              </p>
+            </div>
+          </div>
+          <div className="relative mx-auto w-full max-w-md lg:mr-5">
+            <div className="absolute -inset-3 translate-x-5 translate-y-5 border border-[#1a2324]" />
+            <div className="absolute -right-7 -top-7 h-24 w-24 border-r border-t border-accent/55" />
+            <figure className="group relative aspect-[4/5] overflow-hidden bg-[#141413]">
+              <img
+                src={profileImage}
+                alt="Nurlan Tyeljan"
+                className="h-full w-full object-cover object-[center_38%] transition duration-700 group-hover:scale-[1.025]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020403]/70 via-transparent to-[#5f2e1b]/10" />
+              <div className="absolute bottom-0 left-0 border-r border-t border-[#1a2324] bg-[#141413]/90 px-5 py-4 backdrop-blur-md">
+                <p className="font-mono text-[8px] tracking-[.22em] text-accent">2026 / PORTFOLIO</p>
+              </div>
+            </figure>
           </div>
         </div>
       </section>
 
       <section
         id="about"
-        className="border-t border-white/[.07] px-8 py-28 md:px-12"
+        className="border-t border-slate-200 px-8 py-28 md:px-12"
       >
         <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[160px_1fr] md:gap-20">
           <div>
-            <p className="font-mono text-[8px] text-white/25">01</p>
+            <p className="font-mono text-[8px] text-slate-400">01</p>
             <p className="mt-2 font-mono text-[9px] tracking-widest text-accent/60">
               {text.identity}
             </p>
           </div>
           <div>
-            <h2 className="max-w-4xl font-display text-4xl font-bold uppercase leading-tight md:text-6xl">
-              {text.aboutTitle}
-            </h2>
-            <p className="mt-8 max-w-3xl text-lg leading-relaxed text-white/55">
+            <p className="max-w-3xl text-lg leading-relaxed text-slate-600">
               {text.about}
             </p>
-            <div className="mt-12 grid gap-5 border-t border-white/10 pt-8 sm:grid-cols-2">
+            <div className="mt-12 grid gap-5 border-t border-slate-200 pt-8 sm:grid-cols-2">
               <div>
-                <p className="font-mono text-[9px] tracking-widest text-white/25">
+                <p className="font-mono text-[9px] tracking-widest text-slate-400">
                   {text.education}
                 </p>
                 <p className="mt-3">{text.degree}</p>
               </div>
               <div>
-                <p className="font-mono text-[9px] tracking-widest text-white/25">
+                <p className="font-mono text-[9px] tracking-widest text-slate-400">
                   {text.university}
                 </p>
                 <p className="mt-3">2026</p>
@@ -507,14 +523,14 @@ export default function App() {
 
       <section
         id="skills"
-        className="border-t border-white/[.07] px-8 py-28 md:px-12"
+        className="border-t border-slate-200 px-8 py-28 md:px-12"
       >
         <div className="mx-auto max-w-7xl">
-          <p className="font-mono text-[8px] text-white/25">02</p>
+          <p className="font-mono text-[8px] text-slate-400">02</p>
           <h2 className="mt-2 font-display text-5xl font-black uppercase md:text-7xl">
             {text.skills}
           </h2>
-          <div className="mt-16 grid border-y border-white/10 md:grid-cols-3">
+          <div className="mt-16 grid border-y border-slate-200 md:grid-cols-3">
             <Capability
               number="01"
               title={
@@ -562,14 +578,14 @@ export default function App() {
 
       <section
         id="work"
-        className="border-t border-white/[.07] px-8 py-28 md:px-12"
+        className="border-t border-slate-200 px-8 py-28 md:px-12"
       >
         <div className="mx-auto max-w-7xl">
-          <p className="font-mono text-[8px] text-white/25">03</p>
+          <p className="font-mono text-[8px] text-slate-400">03</p>
           <h2 className="mt-2 font-display text-5xl font-black uppercase md:text-7xl">
             {text.work}
           </h2>
-          <div className="mt-16 border-b border-white/10">
+          <div className="mt-16 border-b border-slate-200">
             {projects.map((project, index) => (
               <button
                 key={project.title}
@@ -577,16 +593,16 @@ export default function App() {
                 onMouseLeave={() => setHoveredProject(null)}
                 onClick={() => openProject(index)}
                 data-hover
-                className="group grid w-full gap-4 border-t border-white/10 py-10 text-left transition-colors hover:text-accent md:grid-cols-[70px_1fr_auto] md:items-center"
+                className="group grid w-full gap-4 border-t border-slate-200 py-10 text-left transition-colors hover:text-accent md:grid-cols-[70px_1fr_auto] md:items-center"
               >
-                <span className="font-mono text-[9px] text-white/25">
+                <span className="font-mono text-[9px] text-slate-400">
                   0{index + 1}
                 </span>
                 <span>
                   <strong className="font-display text-4xl uppercase transition-transform duration-300 group-hover:translate-x-2 md:text-5xl">
                     {project.title}
                   </strong>
-                  <small className="mt-2 block text-sm font-normal text-white/40">
+                  <small className="mt-2 block text-sm font-normal text-slate-500">
                     {project[language].sub}
                   </small>
                 </span>
@@ -601,14 +617,14 @@ export default function App() {
 
       <section
         id="journey"
-        className="border-t border-white/[.07] px-8 py-28 md:px-12"
+        className="border-t border-slate-200 px-8 py-28 md:px-12"
       >
         <div className="mx-auto max-w-7xl">
-          <p className="font-mono text-[8px] text-white/25">04</p>
+          <p className="font-mono text-[8px] text-slate-400">04</p>
           <h2 className="mt-2 font-display text-5xl font-black uppercase md:text-7xl">
             {text.journey}
           </h2>
-          <div className="mt-16 border-l border-white/10">
+          <div className="mt-16 border-l border-slate-200">
             <Timeline
               year="2025.12 — 2026.02"
               title={`${text.internship} — CIA Solution`}
@@ -625,17 +641,17 @@ export default function App() {
 
       <section
         id="contact"
-        className="border-t border-white/[.07] px-8 py-28 md:px-12"
+        className="border-t border-slate-200 px-8 py-28 md:px-12"
       >
         <div className="mx-auto max-w-7xl">
-          <p className="font-mono text-[8px] text-white/25">05</p>
+          <p className="font-mono text-[8px] text-slate-400">05</p>
           <h2 className="mt-6 whitespace-pre-line font-display text-[clamp(4rem,9vw,9rem)] font-black uppercase leading-[.85]">
             {text.contact}
           </h2>
           <div className="mt-16 grid gap-12 md:grid-cols-2">
             <div>
               {text.contactText && (
-                <p className="max-w-lg text-lg leading-relaxed text-white/45">
+                <p className="max-w-lg text-lg leading-relaxed text-slate-600">
                   {text.contactText}
                 </p>
               )}
@@ -643,12 +659,12 @@ export default function App() {
                 href="mailto:nurlant566@gmail.com"
                 className={`${
                   text.contactText ? "mt-8" : "mt-0"
-                } inline-block border border-accent/30 px-6 py-4 font-mono text-xs tracking-widest text-accent hover:bg-accent hover:text-[#08111f]`}
+                } inline-block border border-accent/30 px-6 py-4 font-mono text-xs tracking-widest text-accent hover:bg-accent hover:text-[#020403]`}
               >
                 nurlant566@gmail.com →
               </a>
             </div>
-            <div className="divide-y divide-white/10 border-y border-white/10">
+            <div className="divide-y divide-slate-200 border-y border-slate-200">
               <Contact
                 label="GITHUB"
                 value="@nurlan1234nur"
@@ -665,8 +681,8 @@ export default function App() {
         </div>
       </section>
 
-      <footer className="border-t border-white/[.06] px-8 py-8 md:px-12">
-        <div className="mx-auto max-w-7xl font-mono text-[8px] tracking-widest text-white/20">
+      <footer className="border-t border-slate-200 px-8 py-8 md:px-12">
+        <div className="mx-auto max-w-7xl font-mono text-[8px] tracking-widest text-slate-400">
           <span>NURLAN TYELJAN — 2026</span>
         </div>
       </footer>
