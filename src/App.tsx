@@ -305,6 +305,28 @@ export default function App() {
     return () => window.removeEventListener("mousemove", move)
   }, [])
 
+  useEffect(() => {
+    const elements = document.querySelectorAll<HTMLElement>("[data-reveal]")
+    if (!("IntersectionObserver" in window)) {
+      elements.forEach((element) => element.classList.add("is-visible"))
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          entry.target.classList.add("is-visible")
+          observer.unobserve(entry.target)
+        })
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+    )
+
+    elements.forEach((element) => observer.observe(element))
+    return () => observer.disconnect()
+  }, [selected])
+
   if (selected !== null) {
     const project = projects[selected]
     const content = project[language]
@@ -455,7 +477,7 @@ export default function App() {
       >
         <HeroCanvas />
         <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#020403] to-transparent" />
-        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-[1.15fr_.85fr]">
+        <div data-reveal className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-[1.15fr_.85fr]">
           <div>
             <p className="mb-7 font-mono text-[9px] uppercase tracking-[.25em] text-accent/75">
               {text.role} — Ulaanbaatar
@@ -492,7 +514,7 @@ export default function App() {
         id="about"
         className="border-t border-slate-200 px-8 py-28 md:px-12"
       >
-        <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[160px_1fr] md:gap-20">
+        <div data-reveal className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[160px_1fr] md:gap-20">
           <div>
             <p className="font-mono text-[8px] text-slate-400">01</p>
             <p className="mt-2 font-mono text-[9px] tracking-widest text-accent/60">
@@ -525,7 +547,7 @@ export default function App() {
         id="skills"
         className="border-t border-slate-200 px-8 py-28 md:px-12"
       >
-        <div className="mx-auto max-w-7xl">
+        <div data-reveal className="mx-auto max-w-7xl">
           <p className="font-mono text-[8px] text-slate-400">02</p>
           <h2 className="mt-2 font-display text-5xl font-black uppercase md:text-7xl">
             {text.skills}
@@ -593,6 +615,8 @@ export default function App() {
                 onMouseLeave={() => setHoveredProject(null)}
                 onClick={() => openProject(index)}
                 data-hover
+                data-reveal
+                style={{ transitionDelay: `${index * 80}ms` }}
                 className="group grid w-full gap-4 border-t border-slate-200 py-10 text-left transition-colors hover:text-accent md:grid-cols-[70px_1fr_auto] md:items-center"
               >
                 <span className="font-mono text-[9px] text-slate-400">
@@ -619,7 +643,7 @@ export default function App() {
         id="journey"
         className="border-t border-slate-200 px-8 py-28 md:px-12"
       >
-        <div className="mx-auto max-w-7xl">
+        <div data-reveal className="mx-auto max-w-7xl">
           <p className="font-mono text-[8px] text-slate-400">04</p>
           <h2 className="mt-2 font-display text-5xl font-black uppercase md:text-7xl">
             {text.journey}
@@ -643,7 +667,7 @@ export default function App() {
         id="contact"
         className="border-t border-slate-200 px-8 py-28 md:px-12"
       >
-        <div className="mx-auto max-w-7xl">
+        <div data-reveal className="mx-auto max-w-7xl">
           <p className="font-mono text-[8px] text-slate-400">05</p>
           <h2 className="mt-6 break-words whitespace-pre-line font-display text-[clamp(2.25rem,9vw,9rem)] font-black uppercase leading-[.9] tracking-[-.04em]">
             {text.contact}
