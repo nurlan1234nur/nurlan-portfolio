@@ -15,7 +15,7 @@ type Language = "mn" | "en"
 
 const copy = {
   mn: {
-    nav: ["ЭХЛЭЛ", "ТАНИЛЦУУЛГА", "УР ЧАДВАР", "ТӨСЛҮҮД", "ЗАМНАЛ", "ХОЛБОО"],
+    nav: ["ЭХЛЭЛ", "ТАНИЛЦУУЛГА", "УР ЧАДВАР", "ТӨСЛҮҮД", "ТУРШЛАГА", "ХОЛБОО"],
     role: "Програм хангамжийн инженер",
     hero: ["СУРАЛЦАНА.", "БҮТЭЭНЭ."],
     heroText:
@@ -34,7 +34,7 @@ const copy = {
     work: "ТӨСЛҮҮД",
     concept: "БОДИТ ТӨСӨЛ",
     view: "ДЭЛГЭРЭНГҮЙ",
-    journey: "ЗАМНАЛ",
+    journey: "ТУРШЛАГА",
     internship: "DevOps дадлагажигч",
     internshipText:
       "Өөрийн хөгжүүлсэн жижиг Node.js програмыг Docker контейнер болгож, Kubernetes, CI/CD дамжлага болон байршуулалтын урсгалыг туршсан.",
@@ -57,7 +57,7 @@ const copy = {
     repository: "ЭХ КОД ҮЗЭХ",
   },
   en: {
-    nav: ["HOME", "ABOUT", "SKILLS", "WORK", "JOURNEY", "CONTACT"],
+    nav: ["HOME", "ABOUT", "SKILLS", "WORK", "EXPERIENCE", "CONTACT"],
     role: "Software Engineer",
     hero: ["LEARN.", "BUILD."],
     heroText:
@@ -76,7 +76,7 @@ const copy = {
     work: "SELECTED WORK",
     concept: "REAL PROJECT",
     view: "VIEW DETAILS",
-    journey: "JOURNEY",
+    journey: "EXPERIENCE",
     internship: "DevOps Intern",
     internshipText:
       "Containerized a small Node.js application I developed and experimented with Kubernetes, CI/CD pipelines, and deployment workflows.",
@@ -104,7 +104,6 @@ const copy = {
 const projects = [
   {
     title: "BO ZAR",
-    code: "MARKETPLACE / 01",
     github: "https://github.com/nurlan1234nur/bo-zar",
     live: "http://116.206.83.75:8200/",
     image: marketImage,
@@ -142,7 +141,6 @@ const projects = [
   },
   {
     title: "NUM TMS",
-    code: "DISTRIBUTED SYSTEM / 02",
     github: "https://github.com/Binderya0623/NUM-TMS-26",
     live: "http://116.206.83.75/",
     image: tmsImage,
@@ -181,7 +179,6 @@ const projects = [
   },
   {
     title: "NUM HOSPITAL",
-    code: "HEALTHTECH / 03",
     github: "https://github.com/NUM-HOSPITAL-V1",
     live: "http://116.206.83.75/hospital/",
     image: hospitalImage,
@@ -220,7 +217,6 @@ const projects = [
   },
   {
     title: "NOUS",
-    code: "REAL-TIME / 04",
     github: "https://github.com/nurlan1234nur/nous",
     live: "http://116.206.83.75:8300/",
     image: nousImage,
@@ -338,9 +334,6 @@ export default function App() {
           </h1>
           <p className="mt-4 text-xl text-white/45">{content.sub}</p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <span className="border border-accent/25 bg-accent/[.05] px-3 py-2 font-mono text-[9px] tracking-widest text-accent">
-              {project.code}
-            </span>
             <span className="border border-white/10 px-3 py-2 font-mono text-[9px] tracking-widest text-white/35">
               {project.live ? "LIVE" : text.statusValue}
             </span>
@@ -584,7 +577,7 @@ export default function App() {
                 onMouseLeave={() => setHoveredProject(null)}
                 onClick={() => openProject(index)}
                 data-hover
-                className="group grid w-full gap-4 border-t border-white/10 py-10 text-left transition-colors hover:text-accent md:grid-cols-[70px_1fr_190px_auto] md:items-center"
+                className="group grid w-full gap-4 border-t border-white/10 py-10 text-left transition-colors hover:text-accent md:grid-cols-[70px_1fr_auto] md:items-center"
               >
                 <span className="font-mono text-[9px] text-white/25">
                   0{index + 1}
@@ -596,9 +589,6 @@ export default function App() {
                   <small className="mt-2 block text-sm font-normal text-white/40">
                     {project[language].sub}
                   </small>
-                </span>
-                <span className="font-mono text-[8px] tracking-widest text-white/25">
-                  {project.code}
                 </span>
                 <span className="font-mono text-[9px] tracking-widest text-accent/60">
                   {text.view} →
